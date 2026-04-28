@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients — Arama Tessile LLP | Trusted by Industry Leaders</title>
+    <meta name="description" content="Arama Tessile is trusted by 500+ garment manufacturers, fashion houses, and textile distributors across India.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
+        <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-underline font-semibold">Home</a><a href="about.html" class="nav-underline font-semibold">About</a><a href="products.html" class="nav-underline font-semibold">Products</a>
+            <a href="services.html" class="nav-underline font-semibold">Services</a>
+            <a href="clients.html" class="nav-underline font-semibold active" aria-current="page">Clients</a>
+            <a href="contact.html" class="nav-underline font-semibold">Contact</a>
+            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
+        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
+        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a><a href="about.html" class="nav-underline font-semibold text-lg">About</a><a href="products.html" class="nav-underline font-semibold text-lg">Products</a><a href="services.html" class="nav-underline font-semibold text-lg">Services</a><a href="clients.html" class="nav-underline font-semibold text-lg active">Clients</a><a href="contact.html" class="nav-underline font-semibold text-lg">Contact</a>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero-section" style="min-height:50vh;">
+    <div class="hero-gradient"></div>
+    <div class="container-xxl h-100 d-flex align-items-center" style="position:relative;z-index:5;">
+        <div class="col-lg-8 mx-auto text-center hero-content">
+            <h1 class="hero-title">Our <span class="accent-text">Clients</span></h1>
+            <p class="hero-subtitle mx-auto" style="max-width:600px;text-align:center;">Trusted by garment manufacturers, fashion designers, and textile distributors across India and beyond.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section">
+    <div class="container-xxl">
+        <div class="row text-center g-4">
+            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="500">0</div><div class="stat-label">Happy Clients</div></div></div>
+            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="15">0</div><div class="stat-label">States Served</div></div></div>
+            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="98">0</div><div class="stat-label">% Repeat Rate</div></div></div>
+            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="11">0</div><div class="stat-label">Years of Trust</div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Client Industries -->
+<section class="testimonials-section" id="clients">
+    <div class="container-xxl py-5">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p class="section-subtitle">Diverse sectors trust Arama Tessile for their fabric needs</p>
+            <div class="divider"></div>
+        </div>
+        <div class="clients-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-tshirt"></i><p>Garment<br>Manufacturers</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-store"></i><p>Retail<br>Chains</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-gem"></i><p>Fashion<br>Designers</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-truck-loading"></i><p>Fabric<br>Distributors</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-globe-asia"></i><p>Export<br>Houses</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-home"></i><p>Home<br>Textiles</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-users"></i><p>Uniform<br>Suppliers</p></div></div>
+            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-industry"></i><p>Industrial<br>Textiles</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="about-section" style="background:var(--bg-light);">
+    <div class="container-xxl py-5">
+        <div class="text-center mb-5"><h2 class="section-title">What Our Clients Say</h2><p class="section-subtitle">Real feedback from our valued partners</p><div class="divider"></div></div>
+        <div class="row g-4">
+            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
+                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Arama Tessile's cotton shirting quality is unmatched. Consistent GSM, excellent color fastness, and they always deliver on time. Our go-to supplier for 6 years now."</p>
+                <p style="font-weight:600;color:var(--primary);margin:0;">— Rajesh Mehta</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Garment Manufacturer, Mumbai</p>
+            </div></div>
+            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
+                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Their custom dyeing service is exceptional. We needed exact Pantone matching for our brand colors and Arama delivered perfect results on first attempt. Truly professional."</p>
+                <p style="font-weight:600;color:var(--primary);margin:0;">— Priya Sharma</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Fashion Designer, Delhi</p>
+            </div></div>
+            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
+                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Competitive pricing, flexible MOQ, and excellent bulk order management. We distribute across Gujarat and Arama has been our most reliable fabric source for printed cotton."</p>
+                <p style="font-weight:600;color:var(--primary);margin:0;">— Sunil Agarwal</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Textile Distributor, Surat</p>
+            </div></div>
+        </div>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
+                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"We switched to Arama for our woven fabric needs and haven't looked back. The twill weave quality at their price point is simply the best in the market."</p>
+                <p style="font-weight:600;color:var(--primary);margin:0;">— Mohammed Asif</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Trouser Manufacturer, Bangalore</p>
+            </div></div>
+            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
+                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Their sample development is fast and accurate. We needed specific print designs on cotton for export and Arama's team delivered samples in just 5 days. Excellent service."</p>
+                <p style="font-weight:600;color:var(--primary);margin:0;">— Kavita Deshmukh</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Export House, Tirupur</p>
+            </div></div>
+            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
+                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"What sets Arama apart is their transparency and professionalism. Clear pricing, no hidden costs, and they stand behind their quality. A true B2B partner."</p>
+                <p style="font-weight:600;color:var(--primary);margin:0;">— Deepak Jain</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Retail Chain Owner, Kolkata</p>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section"><div class="container-xxl py-5 text-center">
+    <h2 class="section-title mb-3" style="color:#fff;">Join 500+ Satisfied Clients</h2>
+    <p class="section-subtitle mb-4" style="color:rgba(255,255,255,0.8);">Experience the Arama Tessile difference — premium quality, competitive pricing, reliable delivery.</p>
+    <a href="contact.html" class="cta-btn px-5 py-3 rounded-lg font-bold shadow-lg" style="font-size:1.1rem;display:inline-block;"><i class="fas fa-handshake me-2"></i>Become a Client</a>
+</div></section>
+
+<footer class="footer-section">
+    <div class="container-xxl py-5">
+        <div class="row gy-4">
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai.</p></div>
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div>
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
+        </div>
+        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
+    </div>
+</footer>
+<a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

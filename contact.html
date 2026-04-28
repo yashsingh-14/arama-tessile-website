@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Arama Tessile LLP | Get Wholesale Quote</title>
+    <meta name="description" content="Contact Arama Tessile LLP for wholesale fabric quotes. Office: Kalbadevi Road, Mumbai. Factory: Lower Parel, Mumbai.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
+        <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-underline font-semibold">Home</a><a href="about.html" class="nav-underline font-semibold">About</a><a href="products.html" class="nav-underline font-semibold">Products</a>
+            <a href="services.html" class="nav-underline font-semibold">Services</a><a href="clients.html" class="nav-underline font-semibold">Clients</a>
+            <a href="contact.html" class="nav-underline font-semibold active" aria-current="page">Contact</a>
+            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
+        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
+        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a><a href="about.html" class="nav-underline font-semibold text-lg">About</a><a href="products.html" class="nav-underline font-semibold text-lg">Products</a><a href="services.html" class="nav-underline font-semibold text-lg">Services</a><a href="clients.html" class="nav-underline font-semibold text-lg">Clients</a><a href="contact.html" class="nav-underline font-semibold text-lg active">Contact</a>
+    </div>
+</header>
+
+<!-- Contact Hero -->
+<section class="hero-section" style="min-height:50vh;">
+    <div class="hero-gradient"></div>
+    <div class="container-xxl h-100 d-flex align-items-center" style="position:relative;z-index:5;">
+        <div class="col-lg-8 mx-auto text-center hero-content">
+            <h1 class="hero-title">Get in <span class="accent-text">Touch</span></h1>
+            <p class="hero-subtitle mx-auto" style="max-width:600px;text-align:center;">Ready to order premium fabrics? Contact our B2B team for wholesale quotes, bulk orders, and custom fabric development.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="contact-background"></div>
+    <div class="container-xxl" style="position:relative;z-index:5;">
+        <div class="row gy-5 align-items-start">
+            <div class="col-lg-6 text-white contact-info-col">
+                <h2 class="section-title mb-4 text-white">Contact Information</h2>
+                <div class="contact-info-list">
+                    <div class="contact-info-item"><i class="fas fa-building"></i><div><h5>Registered Office</h5><p>102, Abhay House, 428 Kalbadevi Road,<br>Mumbai, Maharashtra 400002</p></div></div>
+                    <div class="contact-info-item"><i class="fas fa-industry"></i><div><h5>Factory / Processing Unit</h5><p>4th Floor, 437/B Kewal Industrial Estate,<br>Senapati Bapat Marg, Lower Parel,<br>Mumbai 400013</p></div></div>
+                    <div class="contact-info-item"><i class="fas fa-envelope"></i><div><h5>Email</h5><p>info@aramatessile.com</p></div></div>
+                    <div class="contact-info-item"><i class="fas fa-clock"></i><div><h5>Business Hours</h5><p>Monday – Saturday: 10:00 AM – 7:00 PM<br>Sunday: Closed</p></div></div>
+                    <div class="contact-info-item"><i class="fas fa-file-alt"></i><div><h5>Company Details</h5><p>LLPIN: AAB-8912<br>GSTIN: 27AAYFA8415D1Z7<br>Incorporated: 27 Nov 2013</p></div></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form class="contact-form" id="contactForm">
+                    <h3 style="color:#fff;margin-bottom:1.5rem;font-family:'Playfair Display',serif;">Request a Wholesale Quote</h3>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Full Name *" required></div>
+                    <div class="form-group"><input type="email" class="form-control" placeholder="Email Address *" required></div>
+                    <div class="form-group"><input type="tel" class="form-control" placeholder="Phone Number *" required></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Company Name *" required></div>
+                    <div class="form-group"><select class="form-control" required style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:0.75rem 1rem;border-radius:12px;">
+                        <option value="" style="color:#333;">Select Fabric Type</option>
+                        <option value="cotton-shirting" style="color:#333;">Cotton Shirting</option>
+                        <option value="cotton-suiting" style="color:#333;">Cotton Suiting</option>
+                        <option value="woven" style="color:#333;">Woven Fabric</option>
+                        <option value="printed" style="color:#333;">Printed Fabric</option>
+                        <option value="dyed" style="color:#333;">Dyed Fabric</option>
+                        <option value="custom" style="color:#333;">Custom Order</option>
+                    </select></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Quantity Required (meters)"></div>
+                    <div class="form-group"><textarea class="form-control" placeholder="Additional Requirements (GSM, width, color, finish...)" rows="4"></textarea></div>
+                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map -->
+<section style="padding:0;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.8098!2d72.8258!3d18.9568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce1e9c8f3f7d%3A0x8a0c1a7b5c8f3f7d!2sKalbadevi%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<footer class="footer-section">
+    <div class="container-xxl py-5">
+        <div class="row gy-4">
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai.</p></div>
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div>
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
+        </div>
+        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
+    </div>
+</footer>
+<a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

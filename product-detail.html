@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Cotton Shirting — Arama Tessile LLP</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--primary:#1B365D;--accent:#C6A94E;--accent-light:#E8D5A3;--text-dark:#1A1A2E;--text-light:#6B7280;--border:#e6e6e6;--bg:#FAFAF8;}
+*{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text-dark);line-height:1.6;}
+a{text-decoration:none;color:var(--primary);}
+.container{max-width:1200px;margin:24px auto;background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.breadcrumb{font-size:14px;margin-bottom:16px;color:var(--text-light);padding-top:80px;}
+.breadcrumb a{color:var(--primary);}
+h1{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;color:var(--text-dark);}
+.rating{font-size:14px;color:var(--text-light);margin-bottom:8px;}
+.brand{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:16px;}
+.product{display:flex;gap:32px;flex-wrap:wrap;}
+.gallery{display:flex;gap:16px;flex-wrap:wrap;}
+.thumbs{display:flex;flex-direction:column;gap:12px;}
+.thumbs img{width:72px;height:72px;object-fit:cover;border:2px solid var(--border);border-radius:8px;cursor:pointer;transition:border-color .3s;}
+.thumbs img.active{border-color:var(--accent);}
+.main-img{width:100%;max-width:420px;aspect-ratio:1;border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:zoom-in;display:flex;align-items:center;justify-content:center;}
+.main-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+.main-img:hover img{transform:scale(2);}
+.details{flex:1;display:flex;flex-direction:column;}
+.price-box{border:1.5px solid var(--border);border-radius:10px;padding:16px;margin-bottom:24px;}
+.price-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.95rem;}
+.price-row:last-child{border-bottom:none;font-weight:700;color:var(--primary);}
+.section-block{margin-bottom:24px;}
+.section-block h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:10px;}
+.options{display:flex;gap:12px;flex-wrap:wrap;}
+.option{border:1.5px solid var(--border);padding:8px 18px;border-radius:8px;cursor:pointer;transition:all .3s;font-size:0.9rem;}
+.option.active{border-color:var(--accent);color:var(--primary);font-weight:600;background:rgba(198,169,78,0.08);}
+.option:hover{border-color:var(--accent);}
+.actions{display:flex;gap:16px;margin-top:auto;}
+.btn-action{flex:1;padding:14px;border-radius:30px;border:none;cursor:pointer;font-weight:700;font-size:1rem;transition:all .3s;}
+.btn-action.primary{background:linear-gradient(135deg,var(--accent),var(--accent-light));color:var(--text-dark);}
+.btn-action.primary:hover{box-shadow:0 8px 25px rgba(198,169,78,0.3);transform:scale(1.02);}
+.btn-action.secondary{border:2px solid var(--primary);color:var(--primary);background:#fff;}
+.btn-action.secondary:hover{background:var(--primary);color:#fff;}
+.product-info{margin-top:48px;}
+.info-tabs{display:flex;gap:32px;border-bottom:2px solid var(--border);position:sticky;top:0;background:#fff;z-index:100;}
+.tab{background:none;border:none;padding:14px 0;font-weight:600;cursor:pointer;color:var(--text-light);font-size:1rem;transition:color .3s;}
+.tab.active{color:var(--text-dark);border-bottom:3px solid var(--accent);}
+.tab-content{display:none;margin-top:24px;}
+.tab-content.active{display:block;}
+.attr-table{width:100%;border-collapse:collapse;}
+.attr-table td{border:1px solid var(--border);padding:12px;font-size:0.95rem;}
+.attr-table td:nth-child(odd){background:var(--bg);font-weight:600;color:var(--primary);}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--primary);font-weight:600;margin-bottom:16px;padding-top:80px;}
+@media(max-width:900px){.product{flex-direction:column;}.main-img{max-width:100%;}.thumbs{flex-direction:row;overflow-x:auto;}}
+</style>
+</head>
+<body>
+
+<div class="container" role="main">
+    <a href="products.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Catalog</a>
+    <nav class="breadcrumb" style="padding-top:0;">Fabrics &gt; Cotton Shirting &gt; <strong>Premium Cotton Shirting 60s</strong></nav>
+
+    <h1>Premium Cotton Shirting Fabric — 60s Count, 120 GSM, 58" Width</h1>
+    <div class="rating">⭐⭐⭐⭐☆ 4.3 (Based on client reviews) · 500+ orders fulfilled</div>
+    <div class="brand">Arama Tessile LLP — Premium Quality</div>
+
+    <section class="product">
+        <aside class="gallery">
+            <div class="thumbs">
+                <img src="images/fabrics/cotton-shirting.png" alt="White" class="active" onclick="switchImage(this)">
+                <img src="images/fabrics/printed-fabric.png" alt="Printed" onclick="switchImage(this)">
+                <img src="images/fabrics/dyed-fabric.png" alt="Dyed" onclick="switchImage(this)">
+                <img src="images/fabrics/woven-fabric.png" alt="Woven" onclick="switchImage(this)">
+            </div>
+            <div class="main-img">
+                <img id="mainImage" src="images/fabrics/cotton-shirting.png" alt="Premium Cotton Shirting">
+            </div>
+        </aside>
+
+        <div class="details">
+            <div class="price-box">
+                <div class="price-row"><span>500–999 meters</span><span>₹130/m</span></div>
+                <div class="price-row"><span>1,000–4,999 meters</span><span>₹110/m</span></div>
+                <div class="price-row"><span>5,000–19,999 meters</span><span>₹95/m</span></div>
+                <div class="price-row"><span>≥ 20,000 meters</span><span>₹80/m</span></div>
+            </div>
+
+            <div class="section-block"><h3>Available Finishes</h3>
+                <div class="options">
+                    <div class="option active" onclick="selectOption(this)">Calendered</div>
+                    <div class="option" onclick="selectOption(this)">Mercerized</div>
+                    <div class="option" onclick="selectOption(this)">Peach Finish</div>
+                    <div class="option" onclick="selectOption(this)">Enzyme Wash</div>
+                </div>
+            </div>
+
+            <div class="section-block"><h3>Width Options</h3>
+                <div class="options">
+                    <div class="option active" onclick="selectOption(this)">44" (112cm)</div>
+                    <div class="option" onclick="selectOption(this)">58" (147cm)</div>
+                    <div class="option" onclick="selectOption(this)">60" (152cm)</div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn-action primary" onclick="sendEnquiry()"><i class="fas fa-paper-plane me-2"></i>Send Enquiry</button>
+                <button class="btn-action secondary" onclick="window.open('https://wa.me/919999999999','_blank')"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-info">
+        <div class="info-tabs">
+            <button class="tab active" onclick="switchTab('attributes')">Specifications</button>
+            <button class="tab" onclick="switchTab('description')">Description</button>
+            <button class="tab" onclick="switchTab('reviews')">Reviews</button>
+            <button class="tab" onclick="switchTab('supplier')">Supplier Info</button>
+        </div>
+        <div class="tab-content active" id="attributes">
+            <table class="attr-table">
+                <tr><td>Fabric Type</td><td>Cotton Shirting</td><td>Yarn Count</td><td>60s × 60s</td></tr>
+                <tr><td>GSM</td><td>120 GSM</td><td>Width</td><td>44" / 58" / 60"</td></tr>
+                <tr><td>Weave</td><td>Plain Weave (1/1)</td><td>Composition</td><td>100% Cotton</td></tr>
+                <tr><td>Color Fastness</td><td>Grade 4-5 (Excellent)</td><td>Shrinkage</td><td>&lt; 3%</td></tr>
+                <tr><td>MOQ</td><td>500 meters</td><td>Lead Time</td><td>7-15 days</td></tr>
+                <tr><td>Packing</td><td>Rolls (50-100m each)</td><td>Origin</td><td>Mumbai, India</td></tr>
+            </table>
+        </div>
+        <div class="tab-content" id="description"><p style="line-height:1.8;">Our Premium Cotton Shirting is crafted from 60s count yarn, delivering an exceptionally smooth hand feel with excellent drape — perfect for formal and casual shirts. Available in over 40 prints and 200+ solid dyed colors, this fabric features superior color fastness (Grade 4-5) and minimal shrinkage (&lt;3%). Suitable for machine wash. Available with multiple finishing options including calendered, mercerized, peach finish, and enzyme wash to suit your specific garment requirements.</p></div>
+        <div class="tab-content" id="reviews"><p><strong>4.3/5</strong> based on JustDial reviews</p><p style="margin-top:1rem;color:var(--text-light);">"Consistently high quality cotton shirting. Excellent color fastness and minimal shrinkage. Reliable supplier." — Verified Buyer</p></div>
+        <div class="tab-content" id="supplier"><p><strong>Arama Tessile LLP</strong><br>LLPIN: AAB-8912 | GSTIN: 27AAYFA8415D1Z7<br>Registered: 27 Nov 2013<br><br><strong>Office:</strong> 102, Abhay House, 428 Kalbadevi Road, Mumbai 400002<br><strong>Factory:</strong> 4th Floor, 437/B Kewal Industrial Estate, Senapati Bapat Marg, Lower Parel, Mumbai 400013</p></div>
+    </section>
+</div>
+
+<script>
+function switchImage(el){document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));el.classList.add('active');document.getElementById('mainImage').src=el.src;}
+function selectOption(el){el.parentElement.querySelectorAll('.option').forEach(o=>o.classList.remove('active'));el.classList.add('active');}
+function switchTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));document.querySelector(`[onclick="switchTab('${id}')"]`).classList.add('active');document.getElementById(id).classList.add('active');}
+function sendEnquiry(){alert('Enquiry sent! Our team will contact you within 24 hours.');}
+const zc=document.querySelector('.main-img'),zi=document.getElementById('mainImage');
+zc.addEventListener('mousemove',e=>{const r=zc.getBoundingClientRect();zi.style.transformOrigin=`${((e.clientX-r.left)/r.width)*100}% ${((e.clientY-r.top)/r.height)*100}%`;});
+zc.addEventListener('mouseleave',()=>{zi.style.transformOrigin='center';});
+</script>
+</body>
+</html>
