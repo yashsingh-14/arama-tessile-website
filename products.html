@@ -3,119 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabric Catalog — Arama Tessile LLP | Premium Cotton Fabrics</title>
-    <meta name="description" content="Browse Arama Tessile's fabric catalog — premium cotton shirting, suiting, woven, printed & dyed fabrics for garment manufacturers.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <title>All Fabrics â€” Arama Tessile | Premium Cotton Fabric Catalog</title>
+    <meta name="description" content="Browse Arama Tessile's complete fabric catalog â€” premium cotton shirting, suiting, woven, printed & dyed fabrics.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+    /* === PRODUCTS PAGE â€” PREMIUM === */
+    .fab-hero{position:relative;height:45vh;min-height:340px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+    .fab-hero-bg{position:absolute;inset:0;opacity:.15}
+    .fab-hero-bg img{width:100%;height:100%;object-fit:cover}
+    .fab-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,.9) 100%)}
+    .fab-hero-content{position:relative;z-index:3;text-align:center}
+    .fab-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:300;color:#fff;margin-bottom:.5rem}
+    .fab-hero-content p{font-size:.95rem;color:rgba(255,255,255,.45);max-width:500px;margin:0 auto}
+    .fab-hero-count{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light);border:1px solid rgba(139,115,85,.3);padding:.6rem 1.5rem}
+
+    /* Filter Bar */
+    .fab-filter{background:var(--white);border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100}
+    .fab-filter-inner{display:flex;align-items:center;justify-content:center;gap:0;max-width:1200px;margin:0 auto}
+    .fab-tab{padding:1.2rem 2rem;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-light);cursor:pointer;transition:all .3s;border:none;background:none;font-family:'Inter',sans-serif;position:relative}
+    .fab-tab::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--accent);transition:all .3s;transform:translateX(-50%)}
+    .fab-tab:hover{color:var(--black)}
+    .fab-tab.active{color:var(--black);font-weight:500}
+    .fab-tab.active::after{width:60%}
+    .fab-tab .count{font-size:.6rem;color:var(--accent);margin-left:.3rem}
+
+    /* Product Grid */
+    .fab-grid-section{padding:0;background:var(--bg)}
+    .fab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+    .fab-card{background:var(--white);overflow:hidden;text-decoration:none;color:inherit;display:block;position:relative;transition:all .5s}
+    .fab-card:hover{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.1)}
+    .fab-card-img{position:relative;width:100%;height:380px;overflow:hidden}
+    .fab-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.25,.1,.25,1)}
+    .fab-card:hover .fab-card-img img{transform:scale(1.08)}
+    .fab-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 50%);opacity:0;transition:opacity .5s;display:flex;align-items:flex-end;justify-content:center;padding:2rem}
+    .fab-card:hover .fab-card-overlay{opacity:1}
+    .fab-card-overlay span{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.5);padding:.6rem 1.5rem;transition:all .3s}
+    .fab-card-overlay span:hover{background:#fff;color:var(--black)}
+    .fab-card-badge{position:absolute;top:1rem;left:1rem;background:var(--accent);color:#fff;padding:.3rem 1rem;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:500;z-index:2}
+    .fab-card-info{padding:1.5rem}
+    .fab-card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;margin-bottom:.3rem;transition:color .3s}
+    .fab-card:hover .fab-card-info h3{color:var(--accent)}
+    .fab-card-info .type{font-size:.75rem;color:var(--text-light);letter-spacing:.05em;display:block;margin-bottom:.6rem}
+    .fab-card-meta{display:flex;justify-content:space-between;align-items:center;padding-top:.6rem;border-top:1px solid var(--border)}
+    .fab-card-price{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;color:var(--black)}
+    .fab-card-tag{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:'Inter',sans-serif}
+
+    /* Load More */
+    .fab-more{text-align:center;padding:3rem 2rem;background:var(--bg)}
+    .fab-more-btn{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;padding:1rem 3rem;border:1px solid var(--black);background:transparent;color:var(--black);cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif}
+    .fab-more-btn:hover{background:var(--black);color:#fff}
+
+    @media(max-width:992px){.fab-grid{grid-template-columns:repeat(2,1fr)}.fab-card-img{height:300px}.fab-filter-inner{flex-wrap:wrap}.fab-tab{padding:1rem 1.2rem}}
+    @media(max-width:576px){.fab-grid{grid-template-columns:1fr}.fab-card-img{height:320px}}
+    </style>
 </head>
 <body>
 
-<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-underline font-semibold">Home</a>
-            <a href="about.html" class="nav-underline font-semibold">About</a>
-            <a href="products.html" class="nav-underline font-semibold active" aria-current="page">Products</a>
-            <a href="services.html" class="nav-underline font-semibold">Services</a>
-            <a href="clients.html" class="nav-underline font-semibold">Clients</a>
-            <a href="contact.html" class="nav-underline font-semibold">Contact</a>
-            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+<div class="etro-topbar"><div class="etro-topbar-inner"><span>Premium Fabric Manufacturing & Wholesale â€” Since 2013</span></div></div>
+
+<header class="etro-header" id="site-header">
+    <nav class="etro-nav">
+        <div class="etro-nav-left"><a href="index.html" class="etro-logo"><span class="logo-word" data-text="ARAMA">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light" data-text="TESSILE">TESSILE</span></a></div>
+        <div class="etro-nav-center">
+            <a href="products.html" class="etro-nav-link" style="font-weight:500;color:var(--black)">All Fabrics<span class="etro-nav-count">50+</span></a>
+            <a href="services.html" class="etro-nav-link">Services</a>
+            <a href="clients.html" class="etro-nav-link">Clients</a>
+            <a href="contact.html" class="etro-nav-link">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="etro-nav-right">
+            <a href="about.html" class="etro-nav-icon"><i class="fas fa-info-circle"></i></a>
+            <a href="contact.html" class="etro-nav-icon"><i class="fas fa-swatchbook"></i></a>
+        </div>
+        <button class="etro-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
     </nav>
-    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
-        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a><a href="about.html" class="nav-underline font-semibold text-lg">About</a><a href="products.html" class="nav-underline font-semibold text-lg active">Products</a><a href="services.html" class="nav-underline font-semibold text-lg">Services</a><a href="clients.html" class="nav-underline font-semibold text-lg">Clients</a><a href="contact.html" class="nav-underline font-semibold text-lg">Contact</a>
-    </div>
 </header>
 
-<section class="product-category-section py-5">
-    <div class="container-xxl">
-        <div class="section-header text-center mb-5">
-            <h1 class="section-title">Our Fabric Catalog</h1>
-            <p class="section-subtitle">Premium cotton fabrics for garment manufacturers</p>
-            <div class="divider"></div>
-        </div>
-        <div class="product-grid">
+<div id="mobile-menu" class="etro-mobile-menu closed">
+    <div class="etro-mobile-header"><span class="etro-logo"><span class="logo-word">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light">TESSILE</span></span><button id="mobile-menu-close"><i class="fas fa-times"></i></button></div>
+    <div class="etro-mobile-links"><a href="index.html">Home</a><a href="products.html" class="active">All Fabrics</a><a href="about.html">About</a><a href="services.html">Services</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+</div>
 
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/cotton-shirting.png" alt="Premium Cotton Shirting"><span class="product-badge premium">Premium</span></div>
-                <div class="product-content"><h3>Premium Cotton Shirting</h3><p class="product-desc">60s count fine cotton, ideal for formal & casual shirts. Soft hand feel with excellent drape.</p>
-                <div class="product-meta"><span class="product-price">₹80–150/m</span><span class="product-moq">MOQ: 500m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/cotton-suiting.png" alt="Cotton Suiting Fabric"></div>
-                <div class="product-content"><h3>Cotton Suiting</h3><p class="product-desc">Heavy weight cotton for trousers & suits. Wrinkle resistant with superior body.</p>
-                <div class="product-meta"><span class="product-price">₹120–220/m</span><span class="product-moq">MOQ: 300m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/woven-fabric.png" alt="Twill Weave Cotton"><span class="product-badge">Best Seller</span></div>
-                <div class="product-content"><h3>Twill Weave Cotton</h3><p class="product-desc">2/1 & 3/1 twill construction. Excellent durability with distinctive diagonal pattern.</p>
-                <div class="product-meta"><span class="product-price">₹100–180/m</span><span class="product-moq">MOQ: 500m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/printed-fabric.png" alt="Digital Print Cotton"><span class="product-badge new">New</span></div>
-                <div class="product-content"><h3>Digital Print Cotton</h3><p class="product-desc">High-resolution digital prints on fine cotton. Unlimited colors with photo-quality detail.</p>
-                <div class="product-meta"><span class="product-price">₹150–280/m</span><span class="product-moq">MOQ: 200m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/dyed-fabric.png" alt="Solid Dyed Fabric"></div>
-                <div class="product-content"><h3>Solid Dyed Fabrics</h3><p class="product-desc">Reactive dyed cotton with excellent color fastness. 200+ standard shades available.</p>
-                <div class="product-meta"><span class="product-price">₹70–130/m</span><span class="product-moq">MOQ: 1000m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/custom-fabric.png" alt="Custom Fabric"><span class="product-badge premium">Custom</span></div>
-                <div class="product-content"><h3>Custom Order Fabrics</h3><p class="product-desc">Made-to-spec fabrics — choose weave, GSM, width, color & finish to your exact needs.</p>
-                <div class="product-meta"><span class="product-price">Quote on request</span><span class="product-moq">MOQ: 1000m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/cotton-shirting.png" alt="Yarn Dyed Checks"></div>
-                <div class="product-content"><h3>Yarn Dyed Checks</h3><p class="product-desc">Classic check & stripe patterns with yarn-dyed color that lasts through washes.</p>
-                <div class="product-meta"><span class="product-price">₹110–190/m</span><span class="product-moq">MOQ: 500m</span></div></div>
-            </a></div>
-
-            <div class="product-card"><a href="product-detail.html" class="product-card-link">
-                <div class="product-image"><img src="images/fabrics/woven-fabric.png" alt="Satin Weave Cotton"></div>
-                <div class="product-content"><h3>Satin Weave Cotton</h3><p class="product-desc">Luxurious satin weave with silky smooth surface. Perfect for premium garments.</p>
-                <div class="product-meta"><span class="product-price">₹140–250/m</span><span class="product-moq">MOQ: 300m</span></div></div>
-            </a></div>
-
-        </div>
+<!-- Hero -->
+<section class="fab-hero">
+    <div class="fab-hero-bg"><img src="images/fabrics/cotton-shirting.png" alt="Fabrics"></div>
+    <div class="fab-hero-overlay"></div>
+    <div class="fab-hero-content">
+        <p class="etro-story-label" style="color:var(--accent-light)">Catalog</p>
+        <h1>All Fabrics</h1>
+        <p>Explore our complete collection of premium cotton fabrics for garment manufacturers.</p>
+        <div class="fab-hero-count"><i class="fas fa-th-large"></i> 50+ Fabric Varieties</div>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section"><div class="container-xxl py-5 text-center">
-    <h2 class="section-title mb-3" style="color:var(--white);">Need Custom Fabric Specifications?</h2>
-    <p class="section-subtitle mb-4" style="color:rgba(255,255,255,0.8);">Our team can develop custom fabrics to your exact requirements.</p>
-    <a href="contact.html" class="cta-btn px-5 py-3 rounded-lg font-bold shadow-lg" style="font-size:1.1rem;display:inline-block;"><i class="fas fa-paper-plane me-2"></i>Request Custom Quote</a>
-</div></section>
+<!-- Filter Tabs -->
+<nav class="fab-filter">
+    <div class="fab-filter-inner">
+        <button class="fab-tab active" data-filter="all">All <span class="count">8</span></button>
+        <button class="fab-tab" data-filter="shirting">Shirting <span class="count">2</span></button>
+        <button class="fab-tab" data-filter="printed">Printed <span class="count">2</span></button>
+        <button class="fab-tab" data-filter="woven">Woven <span class="count">2</span></button>
+        <button class="fab-tab" data-filter="dyed">Dyed <span class="count">1</span></button>
+        <button class="fab-tab" data-filter="custom">Custom <span class="count">1</span></button>
+    </div>
+</nav>
 
-<footer class="footer-section">
-    <div class="container-xxl py-5">
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai.</p></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li><li><a href="products.html">Dyed Fabrics</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
+<!-- Product Grid -->
+<section class="fab-grid-section">
+    <div class="fab-grid">
+
+        <a href="product-detail.html" class="fab-card" data-cat="shirting">
+            <div class="fab-card-img">
+                <img src="images/fabrics/cotton-shirting.png" alt="Premium Cotton Shirting">
+                <span class="fab-card-badge">Bestseller</span>
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Premium Cotton Shirting</h3>
+                <span class="type">60s Count Â· Fine Cotton Â· 120 GSM</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹80â€“150/m</span><span class="fab-card-tag">MOQ 500m</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="printed">
+            <div class="fab-card-img">
+                <img src="images/fabrics/printed-fabric.png" alt="Digital Print Cotton">
+                <span class="fab-card-badge" style="background:var(--black)">New</span>
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Digital Print Cotton</h3>
+                <span class="type">High-Resolution Â· Unlimited Colors</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹150â€“280/m</span><span class="fab-card-tag">MOQ 300m</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="woven">
+            <div class="fab-card-img">
+                <img src="images/fabrics/woven-fabric.png" alt="Twill Weave Cotton">
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Twill Weave Cotton</h3>
+                <span class="type">2/1 Twill Â· 180 GSM Â· Durable</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹100â€“180/m</span><span class="fab-card-tag">MOQ 500m</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="shirting">
+            <div class="fab-card-img">
+                <img src="images/fabrics/cotton-suiting.png" alt="Cotton Suiting">
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Cotton Suiting</h3>
+                <span class="type">Heavy Weight Â· Wrinkle Resistant</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹120â€“220/m</span><span class="fab-card-tag">MOQ 500m</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="dyed">
+            <div class="fab-card-img">
+                <img src="images/fabrics/dyed-fabric.png" alt="Solid Dyed Fabrics">
+                <span class="fab-card-badge">200+ Shades</span>
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Solid Dyed Fabrics</h3>
+                <span class="type">Reactive Dyed Â· Excellent Fastness</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹70â€“130/m</span><span class="fab-card-tag">MOQ 500m</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="custom">
+            <div class="fab-card-img">
+                <img src="images/fabrics/custom-fabric.png" alt="Custom Order Fabrics">
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Custom Order Fabrics</h3>
+                <span class="type">Made to Your Specification</span>
+                <div class="fab-card-meta"><span class="fab-card-price">Quote on Request</span><span class="fab-card-tag">Custom</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="printed">
+            <div class="fab-card-img">
+                <img src="images/fabrics/cotton-shirting.png" alt="Yarn Dyed Checks">
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Yarn Dyed Checks</h3>
+                <span class="type">Classic Checks & Stripes Â· 140 GSM</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹110â€“190/m</span><span class="fab-card-tag">MOQ 500m</span></div>
+            </div>
+        </a>
+
+        <a href="product-detail.html" class="fab-card" data-cat="woven">
+            <div class="fab-card-img">
+                <img src="images/fabrics/woven-fabric.png" alt="Satin Weave Cotton">
+                <div class="fab-card-overlay"><span>View Details</span></div>
+            </div>
+            <div class="fab-card-info">
+                <h3>Satin Weave Cotton</h3>
+                <span class="type">Silky Smooth Â· Premium Finish</span>
+                <div class="fab-card-meta"><span class="fab-card-price">â‚¹140â€“250/m</span><span class="fab-card-tag">Premium</span></div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- Load More -->
+<div class="fab-more">
+    <button class="fab-more-btn">Load More Fabrics</button>
+</div>
+
+<!-- CTA -->
+<section class="etro-sample-cta">
+    <div class="etro-sample-inner">
+        <h3>Need Custom Fabric?</h3>
+        <p>Share your specifications and we'll develop samples within 48 hours.</p>
+        <a href="contact.html" class="etro-sample-btn">Request Custom Quote</a>
+    </div>
+</section>
+
+<!-- Premium Footer -->
+<footer class="ft">
+    <div class="ft-top">
+        <div class="ft-top-inner">
+            <div class="ft-brand">
+                <a href="index.html" class="ft-logo">Arama Tessile</a>
+                <p>Premium cotton fabric manufacturer & wholesaler based in Mumbai, India. Trusted by 500+ garment manufacturers since 2013.</p>
+                <div class="ft-social">
+                    <a href="#" class="ft-social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="ft-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919999999999" class="ft-social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="ft-col">
+                <h5>Fabrics</h5>
+                <ul><li><a href="products.html">All Fabrics</a></li><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Printed Fabrics</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Dyed Fabrics</a></li></ul>
+            </div>
+            <div class="ft-col">
+                <h5>Company</h5>
+                <ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul>
+            </div>
+            <div class="ft-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@aramatessile.com"><i class="fas fa-envelope" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>info@aramatessile.com</a></li>
+                    <li><a href="https://wa.me/919999999999"><i class="fab fa-whatsapp" style="width:16px;margin-right:.5rem;color:#25D366"></i>WhatsApp Us</a></li>
+                    <li><span style="color:rgba(255,255,255,.35)"><i class="fas fa-map-marker-alt" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>Kalbadevi, Mumbai</span></li>
+                </ul>
+            </div>
         </div>
-        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
+    </div>
+    <div class="ft-bottom">
+        <div class="ft-bottom-inner">
+            <span>&copy; 2024 Arama Tessile LLP. All rights reserved.</span>
+            <span>GSTIN: 27AAYFA8415D1Z7 | LLPIN: AAB-8912</span>
+        </div>
     </div>
 </footer>
+
 <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+/* === PRODUCTS PAGE ANIMATIONS === */
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero
+    gsap.from('.fab-hero-content .etro-story-label', { y: 20, opacity: 0, duration: 0.6, delay: 0.2 });
+    gsap.from('.fab-hero-content h1', { y: 40, opacity: 0, duration: 0.8, delay: 0.4 });
+    gsap.from('.fab-hero-content p', { y: 20, opacity: 0, duration: 0.6, delay: 0.6 });
+    gsap.from('.fab-hero-count', { y: 15, opacity: 0, duration: 0.5, delay: 0.8 });
+
+    // Parallax hero bg
+    gsap.to('.fab-hero-bg img', { y: '30%', scrollTrigger: { trigger: '.fab-hero', start: 'top top', end: 'bottom top', scrub: 0.5 }});
+
+    // Cards stagger
+    document.querySelectorAll('.fab-card').forEach((card, i) => {
+        gsap.from(card, {
+            y: 60, opacity: 0, duration: 0.7, delay: (i % 3) * 0.1,
+            scrollTrigger: { trigger: card, start: 'top 90%', once: true }
+        });
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.fab-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.fab-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const filter = tab.dataset.filter;
+            document.querySelectorAll('.fab-card').forEach(card => {
+                const show = filter === 'all' || card.dataset.cat === filter;
+                gsap.to(card, { opacity: show ? 1 : 0.15, scale: show ? 1 : 0.95, duration: 0.4, pointerEvents: show ? 'auto' : 'none' });
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>

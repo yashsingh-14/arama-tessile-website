@@ -3,277 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arama Tessile LLP — Premium Fabric Manufacturing & Wholesale | Mumbai</title>
-    <meta name="description" content="Arama Tessile LLP is a Mumbai-based premium fabric manufacturer & wholesaler since 2013. Printed & woven cotton fabrics for garment makers across India.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <title>Arama Tessile | Premium Fabric Manufacturing & Wholesale</title>
+    <meta name="description" content="Arama Tessile LLP — Mumbai's premium fabric manufacturer & wholesaler since 2013. Explore our exclusive collection of printed & woven cotton fabrics.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+<!-- Preloader -->
+<div class="preloader">
+    <span class="preloader-text">Arama Tessile</span>
+    <div class="preloader-line"></div>
+</div>
+<!-- Top Bar -->
+<div class="etro-topbar">
+    <span>✦ Premium Fabric Manufacturing & Wholesale — Since 2013 ✦</span>
+    <span style="opacity:.4">|</span>
+    <span><i class="fas fa-phone-alt" style="margin-right:.4rem;font-size:.5rem"></i> Mumbai, India</span>
+    <span style="opacity:.4">|</span>
+    <span><i class="fab fa-whatsapp" style="margin-right:.4rem;font-size:.55rem;color:#25D366"></i> Chat with Us</span>
+</div>
+
 <!-- Header -->
-<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-        <div class="flex items-center gap-3">
-            <span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span>
+<header class="etro-header" id="site-header">
+    <nav class="etro-nav">
+        <div class="etro-nav-left">
+            <a href="index.html" class="etro-logo"><span class="logo-word" data-text="ARAMA">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light" data-text="TESSILE">TESSILE</span></a>
         </div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-underline font-semibold active" aria-current="page">Home</a>
-            <a href="about.html" class="nav-underline font-semibold">About</a>
-            <a href="products.html" class="nav-underline font-semibold">Products</a>
-            <a href="services.html" class="nav-underline font-semibold">Services</a>
-            <a href="clients.html" class="nav-underline font-semibold">Clients</a>
-            <a href="contact.html" class="nav-underline font-semibold">Contact</a>
-            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+        <div class="etro-nav-center">
+            <a href="products.html" class="etro-nav-link">All Fabrics<span class="etro-nav-count">50+</span></a>
+            <a href="services.html" class="etro-nav-link">Services<span class="etro-nav-count">6</span></a>
+            <a href="clients.html" class="etro-nav-link">Clients</a>
+            <a href="contact.html" class="etro-nav-link">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu">
-            <svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <div class="etro-nav-right">
+            <a href="about.html" class="etro-nav-icon" title="About Us"><i class="fas fa-info-circle"></i></a>
+            <a href="contact.html" class="etro-nav-icon" title="Request Samples"><i class="fas fa-swatchbook"></i></a>
+            <a href="https://wa.me/919999999999" class="etro-nav-icon" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <button class="etro-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
         </button>
     </nav>
-    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
-        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu">
-            <svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg>
-        </button>
-        <a href="index.html" class="nav-underline font-semibold text-lg active">Home</a>
-        <a href="about.html" class="nav-underline font-semibold text-lg">About</a>
-        <a href="products.html" class="nav-underline font-semibold text-lg">Products</a>
-        <a href="services.html" class="nav-underline font-semibold text-lg">Services</a>
-        <a href="clients.html" class="nav-underline font-semibold text-lg">Clients</a>
-        <a href="contact.html" class="nav-underline font-semibold text-lg">Contact</a>
-        <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold mt-4 text-center">Get Bulk Quote</a>
-    </div>
 </header>
 
-<!-- Hero -->
-<section class="hero-section" id="hero">
-    <div class="hero-gradient"></div>
-    <div class="container-xxl h-100 d-flex align-items-center">
-        <div class="row w-100 flex-column-reverse flex-lg-row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center hero-content">
-                <h1 class="hero-title">Premium Fabric<br>Manufacturing &<br><span class="accent-text">Wholesale Solutions</span></h1>
-                <p class="hero-subtitle">Since 2013, Arama Tessile LLP has been India's trusted source for premium printed & woven cotton fabrics. Serving garment manufacturers with ₹25-100 Cr annual production capacity from Mumbai.</p>
-                <div class="hero-buttons">
-                    <button class="btn-get-quote" onclick="location.href='contact.html'"><i class="fas fa-file-invoice me-2"></i>Request Bulk Quote</button>
-                    <button class="btn-catalog" onclick="location.href='products.html'"><i class="fas fa-swatchbook me-2"></i>View Fabric Catalog</button>
-                </div>
-            </div>
-            <div class="col-lg-6 hero-images">
-                <div class="hero-mockup-container">
-                    <div class="mockup-item mockup-1"><img src="images/fabrics/cotton-shirting.png" alt="Cotton Shirting Fabric"></div>
-                    <div class="mockup-item mockup-2"><img src="images/fabrics/printed-fabric.png" alt="Printed Fabric"></div>
-                    <div class="mockup-item mockup-3"><img src="images/fabrics/woven-fabric.png" alt="Woven Fabric"></div>
-                </div>
-            </div>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="etro-mobile-menu closed">
+    <div class="etro-mobile-header">
+        <span class="etro-logo"><span class="logo-word">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light">TESSILE</span></span>
+        <button id="mobile-menu-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
     </div>
-    <div class="scroll-indicator"><div class="mouse"><div class="wheel"></div></div></div>
-</section>
-
-<!-- Stats -->
-<section class="stats-section">
-    <div class="container-xxl">
-        <div class="row text-center g-4">
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="11">0</div><div class="stat-label">Years Experience</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="100">0</div><div class="stat-label">Cr+ Capacity (₹)</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="500">0</div><div class="stat-label">Clients Served</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="50">0</div><div class="stat-label">Fabric Varieties</div></div></div>
-        </div>
+    <div class="etro-mobile-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">All Fabrics</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="clients.html">Clients</a>
+        <a href="contact.html">Contact</a>
     </div>
-</section>
+    <div class="etro-mobile-footer">
+        <a href="contact.html" class="etro-mobile-cta">Request Sample Collection</a>
+    </div>
+</div>
 
-<!-- Fabric Categories -->
-<section class="category-section" id="categories">
-    <div class="container-xxl py-5">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title">Our Fabric Categories</h2>
-            <p class="section-subtitle">Comprehensive range of premium textiles for every need</p>
-            <div class="divider"></div>
-        </div>
-        <div class="swiper category-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="category-card"><div class="category-image"><img src="images/fabrics/cotton-shirting.png" alt="Cotton Shirting"></div><div class="category-content"><h3>Cotton Shirting</h3><p>Premium printed cotton fabrics perfect for formal & casual shirts.</p><a href="products.html" class="category-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="category-card"><div class="category-image"><img src="images/fabrics/cotton-suiting.png" alt="Cotton Suiting"></div><div class="category-content"><h3>Cotton Suiting</h3><p>Heavy-weight cotton fabrics ideal for trousers and formal wear.</p><a href="products.html" class="category-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="category-card"><div class="category-image"><img src="images/fabrics/woven-fabric.png" alt="Woven Fabrics"></div><div class="category-content"><h3>Woven Fabrics</h3><p>Plain, twill & satin weave fabrics with superior drape and finish.</p><a href="products.html" class="category-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="category-card"><div class="category-image"><img src="images/fabrics/printed-fabric.png" alt="Printed Fabrics"></div><div class="category-content"><h3>Printed Fabrics</h3><p>Digital & screen printed textiles with vibrant, lasting colors.</p><a href="products.html" class="category-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="category-card"><div class="category-image"><img src="images/fabrics/dyed-fabric.png" alt="Dyed Fabrics"></div><div class="category-content"><h3>Dyed Fabrics</h3><p>Solid color processed fabrics with consistent dye penetration.</p><a href="products.html" class="category-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="category-card"><div class="category-image"><img src="images/fabrics/custom-fabric.png" alt="Custom Fabrics"></div><div class="category-content"><h3>Custom Fabrics</h3><p>Made-to-order fabrics tailored to your exact specifications.</p><a href="products.html" class="category-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
+<!-- Hero Section — Full Bleed Video -->
+<section class="etro-hero">
+    <div class="etro-hero-bg">
+        <video autoplay muted loop playsinline>
+            <source src="images/hero/6278976-uhd_4096_2160_25fps.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="etro-hero-overlay"></div>
+    <div class="etro-hero-content">
+        <p class="etro-hero-label">New Collection</p>
+        <h1 class="etro-hero-title">Exclusive<br>Cotton Fabrics</h1>
+        <a href="products.html" class="etro-hero-cta">Discover Our Fabrics</a>
+    </div>
+    <div class="etro-scroll-hint">
+        <div class="etro-scroll-line"></div>
     </div>
 </section>
 
-<!-- Featured Products -->
-<section class="products-section" id="products">
-    <div class="container-xxl py-5">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title">Featured Fabrics</h2>
-            <p class="section-subtitle">Our best-selling textiles trusted by manufacturers</p>
-            <div class="divider"></div>
-        </div>
-        <div class="swiper products-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="product-card"><div class="product-image"><img src="images/fabrics/cotton-shirting.png" alt="Premium Cotton Shirting"><span class="product-badge premium">Premium</span></div><div class="product-content"><h3>Premium Cotton Shirting</h3><p>60s count, 58" width, 120 GSM fine cotton</p><div class="product-specs"><span class="spec"><i class="fas fa-layer-group"></i> 120 GSM</span><span class="spec"><i class="fas fa-palette"></i> 40+ prints</span></div><a href="product-detail.html" class="product-link">View Details <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="product-card"><div class="product-image"><img src="images/fabrics/printed-fabric.png" alt="Digital Print Cotton"><span class="product-badge new">New</span></div><div class="product-content"><h3>Digital Print Cotton</h3><p>High-resolution digital prints on premium cotton base</p><div class="product-specs"><span class="spec"><i class="fas fa-layer-group"></i> 100 GSM</span><span class="spec"><i class="fas fa-palette"></i> Unlimited</span></div><a href="product-detail.html" class="product-link">View Details <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="product-card"><div class="product-image"><img src="images/fabrics/woven-fabric.png" alt="Twill Weave Cotton"><span class="product-badge">Best Seller</span></div><div class="product-content"><h3>Twill Weave Cotton</h3><p>2/1 twill construction, excellent durability & drape</p><div class="product-specs"><span class="spec"><i class="fas fa-layer-group"></i> 180 GSM</span><span class="spec"><i class="fas fa-palette"></i> 25 colors</span></div><a href="product-detail.html" class="product-link">View Details <i class="fas fa-arrow-right"></i></a></div></div></div>
-                <div class="swiper-slide"><div class="product-card"><div class="product-image"><img src="images/fabrics/dyed-fabric.png" alt="Yarn Dyed Fabric"><span class="product-badge premium">Premium</span></div><div class="product-content"><h3>Yarn Dyed Checks</h3><p>Classic checks & stripes with yarn-dyed color fastness</p><div class="product-specs"><span class="spec"><i class="fas fa-layer-group"></i> 140 GSM</span><span class="spec"><i class="fas fa-palette"></i> 30 patterns</span></div><a href="product-detail.html" class="product-link">View Details <i class="fas fa-arrow-right"></i></a></div></div></div>
+<!-- Brand Story Section -->
+<section class="etro-story">
+    <div class="etro-story-inner story-premium">
+        <div class="story-left">
+            <div class="story-bg-text">AT</div>
+            <div class="story-deco-line"></div>
+            <p class="etro-story-label" style="text-align:left;opacity:1">Est. 2013 — Mumbai, India</p>
+            <h2 class="etro-story-title" style="text-align:left;font-size:clamp(2.2rem,5vw,3.5rem);opacity:1">Distinctive<br><span style="color:var(--accent)">Premium</span> Textiles</h2>
+            <p class="etro-story-desc" style="text-align:left;max-width:480px;opacity:1">Arama Tessile's exclusive collections of premium cotton fabrics combine traditional craftsmanship with modern manufacturing. Our printed, woven, and dyed textiles bring a recognizable quality touch to every garment.</p>
+            
+            <div class="story-features">
+                <div class="story-feature"><div class="story-feature-icon"><i class="fas fa-leaf"></i></div><div><strong>100% Cotton</strong><span>Pure natural fibers</span></div></div>
+                <div class="story-feature"><div class="story-feature-icon"><i class="fas fa-palette"></i></div><div><strong>200+ Shades</strong><span>Pantone color matching</span></div></div>
+                <div class="story-feature"><div class="story-feature-icon"><i class="fas fa-truck"></i></div><div><strong>Pan India</strong><span>15 states delivery</span></div></div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </div>
-</section>
 
-<!-- Why Choose Us -->
-<section class="about-section" id="about">
-    <div class="container-xxl py-5">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <div class="about-image-container">
-                    <div class="about-image-main"><img src="images/hero/hero-fabric.png" alt="Arama Tessile Warehouse"></div>
-                    <div class="about-image-secondary"><span>Since<br>2013</span></div>
-                </div>
+            <div class="story-stats">
+                <div class="story-stat"><span class="story-stat-num" data-target="500">0</span><span class="story-stat-plus">+</span><div class="story-stat-label">Manufacturers</div></div>
+                <div class="story-stat-divider"></div>
+                <div class="story-stat"><span class="story-stat-num" data-target="11">0</span><div class="story-stat-label">Years</div></div>
+                <div class="story-stat-divider"></div>
+                <div class="story-stat"><span class="story-stat-num" data-target="50">0</span><span class="story-stat-plus">+</span><div class="story-stat-label">Fabric Varieties</div></div>
             </div>
-            <div class="col-lg-6">
-                <h2 class="section-title mb-4">Why Choose Arama Tessile?</h2>
-                <p class="section-subtitle mb-4">Mumbai's trusted fabric manufacturer & wholesaler</p>
-                <div class="features-list">
-                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-award"></i></div><div class="feature-content"><h4>11+ Years of Trust</h4><p>Established in 2013, delivering consistent quality to garment makers across India</p></div></div>
-                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-industry"></i></div><div class="feature-content"><h4>₹25-100 Cr Production</h4><p>Large-scale manufacturing capacity with state-of-the-art processing at Lower Parel</p></div></div>
-                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-palette"></i></div><div class="feature-content"><h4>Custom Processing</h4><p>Thread rolling, fabric brushing, dyeing, printing — complete textile processing</p></div></div>
-                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-globe-asia"></i></div><div class="feature-content"><h4>Pan-India & Export</h4><p>Serving domestic markets with growing international presence ($0.55M exports)</p></div></div>
-                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-check-circle"></i></div><div class="feature-content"><h4>Quality Guaranteed</h4><p>Rigorous quality inspection at every production stage — 4.3/5 client rating</p></div></div>
-                </div>
+            <a href="about.html" class="story-cta">Discover Our Story <i class="fas fa-arrow-right" style="margin-left:.5rem;font-size:.6rem"></i></a>
+        </div>
+        <div class="story-right">
+            <div class="story-img-wrap">
+                <img src="images/fabrics/cotton-shirting.png" alt="Premium Fabrics" class="story-img" id="story-parallax-img">
+                <div class="story-img-overlay"></div>
+                <div class="story-img-badge">Since<br><strong>2013</strong></div>
+                <div class="story-img-tag"><i class="fas fa-award"></i> Trusted Quality</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Services -->
-<section class="services-section" id="services">
-    <div class="service-background"></div>
-    <div class="container-xxl py-5 position-relative">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title text-white">Our B2B Services</h2>
-            <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Complete textile manufacturing & processing solutions</p>
-            <div class="divider-white"></div>
+<!-- Featured Fabrics Grid — Premium -->
+<section class="etro-fabrics" id="fab-section">
+    <div class="fab-header">
+        <div class="fab-header-line"></div>
+        <p class="fab-header-label">Curated Collection</p>
+        <h2 class="fab-header-title">Our <span style="color:var(--accent)">Finest</span> Fabrics</h2>
+        <p class="fab-header-desc">Explore our handpicked selection of premium cotton textiles — each fabric tells a story of quality craftsmanship.</p>
+    </div>
+    <div class="etro-fabrics-grid">
+        <a href="product-detail.html" class="etro-fabric-card">
+            <div class="etro-fabric-img">
+                <img src="images/fabrics/cotton-shirting.png" alt="Premium Cotton Shirting">
+                <div class="fab-card-overlay"><span class="fab-view-btn">View Details <i class="fas fa-arrow-right"></i></span></div>
+                <span class="fab-badge bestseller">Bestseller</span>
+            </div>
+            <div class="etro-fabric-info">
+                <h3>Premium Cotton Shirting</h3>
+                <span>60s Count · Fine Cotton</span>
+                <span class="etro-fabric-price">₹80–150/m</span>
+            </div>
+        </a>
+        <a href="product-detail.html" class="etro-fabric-card">
+            <div class="etro-fabric-img">
+                <img src="images/fabrics/printed-fabric.png" alt="Digital Print Cotton">
+                <div class="fab-card-overlay"><span class="fab-view-btn">View Details <i class="fas fa-arrow-right"></i></span></div>
+                <span class="fab-badge new">New</span>
+            </div>
+            <div class="etro-fabric-info">
+                <h3>Digital Print Cotton</h3>
+                <span>High-Resolution Print</span>
+                <span class="etro-fabric-price">₹150–280/m</span>
+            </div>
+        </a>
+        <a href="product-detail.html" class="etro-fabric-card">
+            <div class="etro-fabric-img">
+                <img src="images/fabrics/woven-fabric.png" alt="Twill Weave Cotton">
+                <div class="fab-card-overlay"><span class="fab-view-btn">View Details <i class="fas fa-arrow-right"></i></span></div>
+            </div>
+            <div class="etro-fabric-info">
+                <h3>Twill Weave Cotton</h3>
+                <span>2/1 Twill Construction</span>
+                <span class="etro-fabric-price">₹100–180/m</span>
+            </div>
+        </a>
+        <a href="product-detail.html" class="etro-fabric-card">
+            <div class="etro-fabric-img">
+                <img src="images/fabrics/cotton-suiting.png" alt="Cotton Suiting">
+                <div class="fab-card-overlay"><span class="fab-view-btn">View Details <i class="fas fa-arrow-right"></i></span></div>
+            </div>
+            <div class="etro-fabric-info">
+                <h3>Cotton Suiting</h3>
+                <span>Heavy Weight Cotton</span>
+                <span class="etro-fabric-price">₹120–220/m</span>
+            </div>
+        </a>
+        <a href="product-detail.html" class="etro-fabric-card">
+            <div class="etro-fabric-img">
+                <img src="images/fabrics/dyed-fabric.png" alt="Solid Dyed Fabrics">
+                <div class="fab-card-overlay"><span class="fab-view-btn">View Details <i class="fas fa-arrow-right"></i></span></div>
+                <span class="fab-badge">200+ Shades</span>
+            </div>
+            <div class="etro-fabric-info">
+                <h3>Solid Dyed Fabrics</h3>
+                <span>Reactive Dyed · Premium</span>
+                <span class="etro-fabric-price">₹70–130/m</span>
+            </div>
+        </a>
+        <a href="product-detail.html" class="etro-fabric-card">
+            <div class="etro-fabric-img">
+                <img src="images/fabrics/custom-fabric.png" alt="Custom Order Fabrics">
+                <div class="fab-card-overlay"><span class="fab-view-btn">Get Quote <i class="fas fa-arrow-right"></i></span></div>
+                <span class="fab-badge">Custom</span>
+            </div>
+            <div class="etro-fabric-info">
+                <h3>Custom Order Fabrics</h3>
+                <span>Made to Specification</span>
+                <span class="etro-fabric-price">Quote on Request</span>
+            </div>
+        </a>
+    </div>
+    <div class="fab-footer">
+        <a href="products.html" class="fab-view-all">Explore All 50+ Fabrics <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- Collection Panels — Etro Style -->
+<section class="etro-collections">
+    <a href="products.html" class="etro-collection-panel">
+        <div class="etro-collection-img"><img src="images/fabrics/printed-fabric.png" alt="Printed Collection"></div>
+        <div class="etro-collection-overlay">
+            <span class="etro-collection-label">Collection</span>
+            <h3>Printed Fabrics</h3>
+            <span class="etro-collection-cta">Explore Collection <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-number">01</div><div class="service-icon"><i class="fas fa-scroll"></i></div><h3>Bulk Fabric Supply</h3><p>Competitive pricing on large-volume orders of cotton, woven & printed fabrics with flexible payment terms.</p></div>
-            <div class="service-card"><div class="service-number">02</div><div class="service-icon"><i class="fas fa-fill-drip"></i></div><h3>Custom Dyeing</h3><p>Precision fabric dyeing with advanced color matching and excellent wash & light fastness properties.</p></div>
-            <div class="service-card"><div class="service-number">03</div><div class="service-icon"><i class="fas fa-print"></i></div><h3>Fabric Printing</h3><p>Digital and screen printing with vibrant colors, fine detail reproduction, and unlimited design options.</p></div>
-            <div class="service-card"><div class="service-number">04</div><div class="service-icon"><i class="fas fa-cogs"></i></div><h3>Fabric Processing</h3><p>Thread rolling, fabric brushing, finishing treatments — complete post-production processing services.</p></div>
-            <div class="service-card"><div class="service-number">05</div><div class="service-icon"><i class="fas fa-drafting-compass"></i></div><h3>Sample Development</h3><p>Rapid sample creation and prototyping to validate designs before bulk production commitment.</p></div>
-            <div class="service-card"><div class="service-number">06</div><div class="service-icon"><i class="fas fa-truck"></i></div><h3>Pan-India Delivery</h3><p>Reliable logistics across India with competitive shipping rates and real-time order tracking.</p></div>
+    </a>
+    <a href="products.html" class="etro-collection-panel">
+        <div class="etro-collection-img"><img src="images/fabrics/woven-fabric.png" alt="Woven Collection"></div>
+        <div class="etro-collection-overlay">
+            <span class="etro-collection-label">Collection</span>
+            <h3>Woven Fabrics</h3>
+            <span class="etro-collection-cta">Explore Collection <i class="fas fa-arrow-right"></i></span>
+        </div>
+    </a>
+    <a href="products.html" class="etro-collection-panel">
+        <div class="etro-collection-img"><img src="images/fabrics/dyed-fabric.png" alt="Dyed Collection"></div>
+        <div class="etro-collection-overlay">
+            <span class="etro-collection-label">Collection</span>
+            <h3>Dyed Fabrics</h3>
+            <span class="etro-collection-cta">Explore Collection <i class="fas fa-arrow-right"></i></span>
+        </div>
+    </a>
+</section>
+
+<!-- Stats Bar -->
+<section class="etro-stats">
+    <div class="etro-stats-inner">
+        <div class="etro-stat"><span class="etro-stat-num" data-target="11">0</span><span class="etro-stat-label">Years Experience</span></div>
+        <div class="etro-stat"><span class="etro-stat-num" data-target="100">0</span><span class="etro-stat-label">Cr+ Capacity (₹)</span></div>
+        <div class="etro-stat"><span class="etro-stat-num" data-target="500">0</span><span class="etro-stat-label">Clients Served</span></div>
+        <div class="etro-stat"><span class="etro-stat-num" data-target="50">0</span><span class="etro-stat-label">Fabric Varieties</span></div>
+    </div>
+</section>
+
+<!-- Services Preview — Premium Dark -->
+<section class="srv-preview">
+    <div class="srv-preview-bg"></div>
+    <div class="srv-preview-inner">
+        <div class="srv-preview-header">
+            <div class="srv-preview-line"></div>
+            <p class="srv-preview-label">Our Expertise</p>
+            <h2 class="srv-preview-title">B2B Textile <span style="color:var(--accent-light)">Services</span></h2>
+            <p class="srv-preview-desc">From bulk supply to custom development — end-to-end solutions for garment manufacturers.</p>
+        </div>
+        <div class="srv-preview-grid">
+            <div class="srv-preview-card">
+                <div class="srv-card-icon"><i class="fas fa-boxes-stacked"></i></div>
+                <span class="srv-card-num">01</span>
+                <h4>Bulk Fabric Supply</h4>
+                <p>Competitive pricing on large-volume orders with flexible payment terms & pan-India delivery.</p>
+                <a href="services.html" class="srv-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="srv-preview-card">
+                <div class="srv-card-icon"><i class="fas fa-droplet"></i></div>
+                <span class="srv-card-num">02</span>
+                <h4>Custom Dyeing</h4>
+                <p>Precision fabric dyeing with advanced Pantone color matching technology & 200+ shade options.</p>
+                <a href="services.html" class="srv-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="srv-preview-card">
+                <div class="srv-card-icon"><i class="fas fa-print"></i></div>
+                <span class="srv-card-num">03</span>
+                <h4>Fabric Printing</h4>
+                <p>Digital & screen printing with vibrant, lasting colors. Custom patterns, motifs & designs.</p>
+                <a href="services.html" class="srv-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="srv-preview-card">
+                <div class="srv-card-icon"><i class="fas fa-flask"></i></div>
+                <span class="srv-card-num">04</span>
+                <h4>Sample Development</h4>
+                <p>Rapid prototyping to validate designs before bulk commitment. 48-hour turnaround available.</p>
+                <a href="services.html" class="srv-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="srv-preview-footer">
+            <a href="services.html" class="srv-preview-cta">Explore All Services <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials-section" id="testimonials">
-    <div class="container-xxl py-5">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title">Trusted by Industry Leaders</h2>
-            <p class="section-subtitle">What our partners say about us</p>
-            <div class="divider"></div>
-        </div>
-        <div class="clients-grid">
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-tshirt"></i><p>Garment Co.</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-store"></i><p>Retail Group</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-gem"></i><p>Fashion House</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-crown"></i><p>Premium Wear</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-star"></i><p>Export Corp</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-globe"></i><p>Global Textiles</p></div></div>
-        </div>
-        <div class="testimonials-carousel mt-5">
-            <div class="testimonial-card active"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Arama Tessile's fabric quality is consistently excellent. Their cotton shirting has become our go-to for premium shirt manufacturing. Highly reliable supplier."</p><p class="testimonial-author">— Rajesh Mehta, Garment Manufacturer, Mumbai</p></div>
-            <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"We've been sourcing printed cotton from Arama for 5 years. Their custom dyeing service is unmatched — perfect color matching every time."</p><p class="testimonial-author">— Priya Sharma, Fashion Designer, Delhi</p></div>
-            <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Competitive pricing, on-time delivery, and excellent bulk order management. Arama Tessile understands the B2B textile business perfectly."</p><p class="testimonial-author">— Sunil Agarwal, Textile Distributor, Surat</p></div>
-        </div>
+<!-- Order Samples CTA — Floating Bar -->
+<section class="etro-sample-cta">
+    <div class="etro-sample-inner">
+        <h3>Ready to Experience Our Fabrics?</h3>
+        <p>Request a curated sample collection tailored to your manufacturing needs.</p>
+        <a href="contact.html" class="etro-sample-btn">Request Sample Collection</a>
     </div>
 </section>
 
-<!-- Contact CTA -->
-<section class="contact-section" id="contact">
-    <div class="contact-background"></div>
-    <div class="container-xxl" style="position:relative;z-index:5;">
-        <div class="row gy-5 align-items-center">
-            <div class="col-lg-6 text-white contact-info-col">
-                <h2 class="section-title mb-4 text-white">Ready to Order?</h2>
-                <p class="section-subtitle mb-4" style="color:rgba(255,255,255,0.8)">Get in touch with our B2B team for wholesale quotes and bulk orders.</p>
-                <div class="contact-info-list">
-                    <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><div><h5>Registered Office</h5><p>102, Abhay House, 428 Kalbadevi Road, Mumbai 400002</p></div></div>
-                    <div class="contact-info-item"><i class="fas fa-industry"></i><div><h5>Factory</h5><p>4th Floor, 437/B Kewal Industrial Estate, Senapati Bapat Marg, Lower Parel, Mumbai 400013</p></div></div>
-                    <div class="contact-info-item"><i class="fas fa-envelope"></i><div><h5>Email</h5><p>info@aramatessile.com</p></div></div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Full Name" required></div>
-                    <div class="form-group"><input type="email" class="form-control" placeholder="Email Address" required></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Company Name" required></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Fabric Type Required" required></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Quantity (in meters)" required></div>
-                    <div class="form-group"><textarea class="form-control" placeholder="Additional Requirements" rows="3"></textarea></div>
-                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Request Wholesale Quote</button>
-                </form>
-            </div>
+<!-- Premium Footer -->
+<footer class="ft">
+    <div class="ft-top"><div class="ft-top-inner">
+        <div class="ft-brand">
+            <a href="index.html" class="ft-logo">Arama Tessile</a>
+            <p>Premium cotton fabric manufacturer & wholesaler based in Mumbai. Trusted by 500+ garment manufacturers since 2013.</p>
+            <div class="ft-social"><a href="#" class="ft-social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="ft-social-icon"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/919999999999" class="ft-social-icon"><i class="fab fa-whatsapp"></i></a></div>
         </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer-section">
-    <div class="container-xxl py-5">
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5>
-                <p>Premium fabric manufacturer & wholesaler based in Mumbai, serving garment makers since 2013. LLPIN AAB-8912.</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="footer-title">Our Fabrics</h5>
-                <ul class="footer-links">
-                    <li><a href="products.html">Cotton Shirting</a></li>
-                    <li><a href="products.html">Woven Fabrics</a></li>
-                    <li><a href="products.html">Printed Fabrics</a></li>
-                    <li><a href="products.html">Dyed Fabrics</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="footer-title">Company</h5>
-                <ul class="footer-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="clients.html">Clients</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="footer-title">Connect</h5>
-                <div class="social-links">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-        <hr class="my-4">
-        <div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved. | GSTIN: 27AAYFA8415D1Z7</p></div></div>
-    </div>
+        <div class="ft-col"><h5>Fabrics</h5><ul><li><a href="products.html">All Fabrics</a></li><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Printed Fabrics</a></li><li><a href="products.html">Woven Fabrics</a></li></ul></div>
+        <div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="ft-col"><h5>Contact</h5><ul><li><a href="mailto:info@aramatessile.com"><i class="fas fa-envelope" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>info@aramatessile.com</a></li><li><a href="https://wa.me/919999999999"><i class="fab fa-whatsapp" style="width:16px;margin-right:.5rem;color:#25D366"></i>WhatsApp Us</a></li></ul></div>
+    </div></div>
+    <div class="ft-bottom"><div class="ft-bottom-inner"><span>&copy; 2024 Arama Tessile LLP. All rights reserved.</span><span>GSTIN: 27AAYFA8415D1Z7 | LLPIN: AAB-8912</span></div></div>
 </footer>
 
 <!-- WhatsApp Float -->
 <a href="https://wa.me/919999999999?text=Hi%20Arama%20Tessile%2C%20I%27m%20interested%20in%20your%20fabrics" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+// Story stat counters
+document.querySelectorAll('.story-stat-num[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            observer.disconnect();
+            const dur = 1800, st = performance.now();
+            function tick(now) {
+                const p = Math.min((now - st) / dur, 1);
+                el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target);
+                if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+        }
+    }, { threshold: 0.3 });
+    observer.observe(el);
+});
+
+// Parallax effects only (no opacity changes)
+if (document.querySelector('#story-parallax-img')) {
+    gsap.to('#story-parallax-img', {
+        y: '10%', ease: 'none',
+        scrollTrigger: { trigger: '.story-right', start: 'top bottom', end: 'bottom top', scrub: 0.5 }
+    });
+}
+if (document.querySelector('.story-bg-text')) {
+    gsap.to('.story-bg-text', {
+        y: -60, ease: 'none',
+        scrollTrigger: { trigger: '.story-left', start: 'top bottom', end: 'bottom top', scrub: 0.3 }
+    });
+}
+
+// Simple fade-in on scroll using IntersectionObserver (safe — never hides content permanently)
+const fadeEls = document.querySelectorAll('.srv-preview-card, .story-feature, .fab-header-line, .fab-header-label, .fab-header-title, .fab-header-desc, .fab-view-all, .srv-preview-line, .srv-preview-label, .srv-preview-title, .srv-preview-desc, .srv-preview-cta');
+fadeEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(25px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, i * 80);
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => revealObserver.observe(el));
+</script>
 </body>
 </html>

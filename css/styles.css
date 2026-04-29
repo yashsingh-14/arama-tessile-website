@@ -1,266 +1,434 @@
-/* === ARAMA TESSILE — LUXURY TEXTILE DESIGN SYSTEM === */
+/* === ARAMA TESSILE — ETRO CLONE DESIGN === */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    --primary: #1B365D;
-    --primary-dark: #0F2140;
-    --accent: #C6A94E;
-    --accent-light: #E8D5A3;
-    --text-dark: #1A1A2E;
-    --text-light: #6B7280;
-    --bg-light: #FAFAF8;
-    --white: #FFFFFF;
-    --dark-bg: #0F1724;
-    --border-radius: 12px;
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg: #FAF8F5; --white: #fff; --black: #1A1A1A; --text: #2D2D2D;
+    --text-light: #777; --accent: #8B7355; --accent-light: #C4B498;
+    --border: #E5E0DA; --dark: #111;
 }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+body.loaded .preloader{pointer-events:none}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; color: var(--text-dark); overflow-x: hidden; background: var(--white); }
+/* === PRELOADER === */
+.preloader{position:fixed;inset:0;z-index:9999;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+.preloader-text{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--white);letter-spacing:.1em}
+.preloader-line{width:60px;height:1px;background:var(--accent-light);transform:scaleX(0);transform-origin:left}
 
-h1,h2,h3,h4,h5,h6 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--text-dark); }
+/* === CUSTOM CURSOR === */
+.custom-cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;mix-blend-mode:difference}
+.cursor-follower{position:fixed;width:36px;height:36px;border:1px solid rgba(139,115,85,.4);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .4s,height .4s,border-color .3s}
+.custom-cursor.hover{width:50px;height:50px;background:rgba(139,115,85,.15);mix-blend-mode:normal}
+.cursor-follower.hover{width:60px;height:60px;border-color:var(--accent)}
+@media(max-width:1024px),(pointer:coarse){body{cursor:auto}.custom-cursor,.cursor-follower{display:none!important}}
 
-.section-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.5px; }
-.section-subtitle { font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; }
-.divider { width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); border-radius: 2px; margin: 1rem auto; }
-.divider-white { width: 60px; height: 4px; background: var(--accent); border-radius: 2px; margin: 1rem auto; }
+/* === PREMIUM TRANSITIONS === */
+.etro-fabric-card{transform-style:preserve-3d;will-change:transform}
+.etro-fabric-card .etro-fabric-img{overflow:hidden;position:relative}
+.etro-fabric-card .etro-fabric-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.15) 0%,transparent 40%);opacity:0;transition:opacity .5s}
+.etro-fabric-card:hover .etro-fabric-img::after{opacity:1}
+.etro-fabric-info{transition:transform .4s ease}
+.etro-fabric-card:hover .etro-fabric-info{transform:translateY(-4px)}
 
-.gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.etro-collection-panel{overflow:hidden}
+.etro-collection-panel .etro-collection-overlay{transition:transform .5s ease}
+.etro-collection-panel:hover .etro-collection-overlay{transform:translateY(-8px)}
+.etro-collection-cta i{transition:transform .3s}
+.etro-collection-panel:hover .etro-collection-cta i{transform:translateX(5px)}
 
-/* === MOBILE MENU === */
-.mobile-menu { display: none; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--transition); }
-.mobile-menu.open { display: flex; opacity: 1; pointer-events: auto; }
-.mobile-menu.closed { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+/* Header scroll state */
+.etro-header.scrolled{background:rgba(250,248,245,.98);box-shadow:0 1px 30px rgba(0,0,0,.04)}
+.etro-header.scrolled .etro-nav{padding:.6rem 2rem}
 
-/* === NAV === */
-.nav-underline { color: var(--text-dark); transition: color 0.25s, background 0.25s, transform 0.25s; padding: 0.25rem 0.5rem; border-radius: 6px; text-decoration: none; }
-.nav-underline:hover, .nav-underline:focus { color: var(--primary); background: rgba(27,54,93,0.07); transform: scale(1.07); }
-.nav-underline.active { color: var(--primary); font-weight: 700; }
+/* Smooth section transitions */
+section{position:relative}
 
-.cta-btn { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--text-dark) !important; font-weight: 700; text-decoration: none; transition: all 0.3s; border: none; }
-.cta-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(198,169,78,0.3); }
+/* Links hover line animation */
+.etro-text-link i,.etro-collection-cta i{display:inline-block}
 
-#site-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1100; will-change: transform; transition: transform 0.3s ease; }
-#site-header.nav-hidden { transform: translateY(-100%); }
+/* Service hover glow */
+.etro-service-item,.etro-service-full-card{position:relative;overflow:hidden}
+.etro-service-item::before,.etro-service-full-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transition:left .6s ease}
+.etro-service-item:hover::before,.etro-service-full-card:hover::before{left:100%}
 
-@media (max-width: 768px) {
-    .mobile-menu .nav-underline:hover { background: var(--primary); color: #fff; transform: scale(1.05); }
-    .mobile-menu .nav-underline.active { background: var(--primary-dark); color: #fff; }
-}
+/* Button press effect */
+.etro-hero-cta:active,.etro-sample-btn:active{transform:scale(0.97)}
+
+/* Topbar text animation */
+.etro-topbar{overflow:hidden}
+.etro-topbar span{display:inline-block;animation:topbarSlide 20s linear infinite}
+@keyframes topbarSlide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+
+
+/* === TOPBAR === */
+.etro-topbar{background:var(--black);color:rgba(255,255,255,.75);text-align:center;padding:.45rem 1rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;position:fixed;top:0;left:0;width:100%;z-index:1101;transition:transform .4s;display:flex;align-items:center;justify-content:center;gap:2rem}
+
+/* === HEADER — ULTRA PREMIUM === */
+.etro-header{position:fixed;top:28px;left:0;width:100%;z-index:1100;transition:all .5s cubic-bezier(.25,.1,.25,1);background:transparent;border-bottom:1px solid transparent}
+.etro-header.scrolled{background:rgba(250,248,245,.92);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);border-bottom:1px solid rgba(229,224,218,.4);box-shadow:0 4px 30px rgba(0,0,0,.03)}
+.etro-header.nav-hidden{transform:translateY(-100%)}
+.etro-nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;transition:padding .4s}
+.etro-header.scrolled .etro-nav{padding:.7rem 2.5rem}
+
+/* Hero transparent state — bright white text over dark backgrounds */
+.etro-header.hero-transparent .etro-logo{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+.etro-header.hero-transparent .etro-nav-link{color:rgba(255,255,255,.95);text-shadow:0 1px 6px rgba(0,0,0,.15)}
+.etro-header.hero-transparent .etro-nav-link:hover{color:#fff}
+.etro-header.hero-transparent .etro-nav-count{color:#fff;background:rgba(255,255,255,.2)}
+.etro-header.hero-transparent .etro-nav-icon{color:rgba(255,255,255,.9)}
+.etro-header.hero-transparent .etro-nav-icon:hover{color:#fff}
+.etro-header.hero-transparent .etro-menu-btn span{background:#fff}
+/* Scrolled = back to dark */
+.etro-header.scrolled.hero-transparent .etro-logo{color:var(--black)}
+.etro-header.scrolled.hero-transparent .etro-nav-link{color:var(--text-light)}
+.etro-header.scrolled.hero-transparent .etro-nav-link:hover{color:var(--black)}
+.etro-header.scrolled.hero-transparent .etro-nav-count{color:var(--accent);background:rgba(139,115,85,.08)}
+.etro-header.scrolled.hero-transparent .etro-nav-icon{color:var(--text-light)}
+.etro-header.scrolled.hero-transparent .etro-nav-icon:hover{color:var(--accent)}
+.etro-header.scrolled.hero-transparent .etro-menu-btn span{background:var(--black)}
+
+/* Logo — Premium Split */
+.etro-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--black);text-decoration:none;letter-spacing:.2em;position:relative;display:inline-flex;align-items:center;gap:0;text-transform:uppercase;transition:all .4s}
+.etro-logo:hover{opacity:.8}
+.etro-logo::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--accent),transparent);transition:width .5s}
+.etro-logo:hover::after{width:100%}
+.logo-word{display:inline-block;overflow:hidden}
+.logo-light{font-weight:300;letter-spacing:.25em}
+.logo-sep{color:var(--accent);font-size:.55rem;margin:0 .5rem;display:inline-block;transition:all .4s}
+.etro-logo:hover .logo-sep{transform:rotate(90deg) scale(1.3)}
+.logo-char{display:inline-block}
+
+/* Nav Links */
+.etro-nav-center{display:flex;gap:2.8rem;align-items:center}
+.etro-nav-link{font-size:.7rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light);text-decoration:none;position:relative;transition:color .4s;display:flex;align-items:center;gap:.4rem;padding:.3rem 0}
+.etro-nav-link:hover{color:var(--black)}
+.etro-nav-link::before{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:1px;background:linear-gradient(90deg,var(--accent),var(--accent-light));transition:all .4s cubic-bezier(.25,.1,.25,1);transform:translateX(-50%)}
+.etro-nav-link:hover::before{width:100%}
+.etro-nav-link::after{content:none}
+.etro-nav-count{font-size:.55rem;color:var(--accent);font-weight:500;background:rgba(139,115,85,.08);padding:.15rem .45rem;border-radius:10px;margin-left:.2rem;transition:all .3s}
+.etro-nav-link:hover .etro-nav-count{background:rgba(139,115,85,.15);color:var(--black)}
+
+/* Right Icons */
+.etro-nav-right{display:flex;gap:1rem;align-items:center}
+.etro-nav-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:.9rem;transition:all .3s;text-decoration:none;border-radius:50%;position:relative}
+.etro-nav-icon::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid transparent;transition:all .3s}
+.etro-nav-icon:hover{color:var(--accent)}
+.etro-nav-icon:hover::before{border-color:rgba(139,115,85,.25);transform:scale(1.15)}
+
+/* Hamburger — Animated */
+.etro-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;position:relative;width:30px;height:24px;justify-content:center}
+.etro-menu-btn span{width:22px;height:1.5px;background:var(--black);transition:all .4s cubic-bezier(.25,.1,.25,1);display:block;transform-origin:center}
+
+/* === MOBILE MENU — FULLSCREEN PREMIUM === */
+.etro-mobile-menu{position:fixed;inset:0;background:var(--black);z-index:2000;display:flex;flex-direction:column;transition:clip-path .6s cubic-bezier(.77,0,.175,1);clip-path:circle(0% at calc(100% - 40px) 30px)}
+.etro-mobile-menu.open{clip-path:circle(150% at calc(100% - 40px) 30px)}
+.etro-mobile-menu.closed{clip-path:circle(0% at calc(100% - 40px) 30px);pointer-events:none}
+.etro-mobile-header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.etro-mobile-header .etro-logo{color:#fff}
+.etro-mobile-header button{background:none;border:1px solid rgba(255,255,255,.15);width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;font-size:1rem;transition:all .3s}
+.etro-mobile-header button:hover{background:var(--accent);border-color:var(--accent)}
+.etro-mobile-links{flex:1;display:flex;flex-direction:column;padding:3rem 2.5rem;gap:0;justify-content:center}
+.etro-mobile-links a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;letter-spacing:.05em;color:rgba(255,255,255,.4);text-decoration:none;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.04);transition:all .4s;position:relative;padding-left:0}
+.etro-mobile-links a:hover,.etro-mobile-links a.active{color:#fff;padding-left:1rem}
+.etro-mobile-links a::before{content:'';position:absolute;left:0;top:50%;width:0;height:1px;background:var(--accent);transition:width .3s;transform:translateY(-50%)}
+.etro-mobile-links a:hover::before,.etro-mobile-links a.active::before{width:.5rem}
+.etro-mobile-footer{padding:2rem 2.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.etro-mobile-cta{display:block;text-align:center;background:transparent;color:var(--accent-light);padding:1rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(139,115,85,.3);transition:all .3s}
+.etro-mobile-cta:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.etro-mobile-cta:hover{background:var(--accent)}
 
 /* === HERO === */
-.hero-section { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
-.hero-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary) 0%, #162d4f 25%, #0d1b33 50%, var(--dark-bg) 100%); z-index: 1; animation: gradientShift 8s ease infinite; }
-@keyframes gradientShift {
-    0%,100% { background: linear-gradient(135deg, var(--primary) 0%, #162d4f 25%, #0d1b33 50%, var(--dark-bg) 100%); }
-    50% { background: linear-gradient(135deg, #1e3f6e 0%, var(--primary) 25%, #142847 50%, #0a1220 100%); }
-}
-.hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%, rgba(198,169,78,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.3) 0%, transparent 50%); z-index: 2; }
-.hero-content { position: relative; z-index: 5; animation: fadeInUp 1s ease 0.2s both; }
-.hero-title { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -1px; }
-.accent-text { background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; max-width: 520px; line-height: 1.7; font-family: 'Inter', sans-serif; }
-.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 1s ease 0.4s both; }
+.etro-hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.etro-hero-bg{position:absolute;inset:0;z-index:1}
+.etro-hero-bg img,.etro-hero-bg video{width:100%;height:100%;object-fit:cover}
+.etro-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:2}
+.etro-hero-content{position:relative;z-index:3;text-align:center;padding:2rem}
+.etro-hero-label{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
+.etro-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,6rem);font-weight:300;color:#fff;line-height:1.05;margin-bottom:2.5rem;letter-spacing:.03em}
+.etro-hero-cta{display:inline-block;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.5);padding:1rem 3rem;text-decoration:none;transition:all .4s}
+.etro-hero-cta:hover{background:#fff;color:var(--black);border-color:#fff}
+.etro-scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3}
+.etro-scroll-line{width:1px;height:50px;background:rgba(255,255,255,.3);animation:scrollLine 2s infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-.btn-get-quote { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--text-dark); font-weight: 700; padding: 1rem 2.5rem; border-radius: var(--border-radius); border: none; transition: all 0.3s; box-shadow: 0 10px 40px rgba(198,169,78,0.3); cursor: pointer; font-size: 1rem; }
-.btn-get-quote:hover { transform: scale(1.05); box-shadow: 0 15px 50px rgba(198,169,78,0.4); }
-.btn-catalog { background: transparent; color: var(--white); font-weight: 600; padding: 1rem 2.5rem; border-radius: var(--border-radius); border: 2px solid var(--accent); transition: all 0.3s; cursor: pointer; font-size: 1rem; }
-.btn-catalog:hover { background: var(--accent); color: var(--text-dark); transform: scale(1.05); }
+/* === BRAND STORY === */
+.etro-story{padding:6rem 2rem;text-align:center;background:var(--white)}
+.etro-story-inner{max-width:700px;margin:0 auto}
+.etro-story-label{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.etro-story-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--black);line-height:1.2;margin-bottom:1.5rem}
+.etro-story-desc{font-size:.95rem;color:var(--text-light);line-height:1.8;letter-spacing:.02em}
 
-.hero-images { position: relative; z-index: 5; display: flex; align-items: center; justify-content: center; min-height: 500px; }
-.hero-mockup-container { position: relative; width: 350px; height: 420px; }
-.mockup-item { position: absolute; width: 170px; height: 220px; background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(198,169,78,0.3); border-radius: var(--border-radius); overflow: hidden; }
-.mockup-item img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); }
-.mockup-1 { left: 0; top: 50px; }
-.mockup-2 { right: 0; top: 0; }
-.mockup-3 { right: 40px; bottom: 0; }
+/* Story Premium Split */
+.etro-story{overflow:hidden}
+.story-premium{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:none;padding:0;position:relative}
+.story-left{padding:5rem 4rem 5rem 6rem;display:flex;flex-direction:column;justify-content:center;position:relative;background:var(--bg);overflow:hidden}
+.story-bg-text{position:absolute;top:50%;left:-5%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:20rem;font-weight:300;color:rgba(0,0,0,.03);line-height:1;pointer-events:none;z-index:0;letter-spacing:-.05em}
+.story-deco-line{position:relative;z-index:1;width:50px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));margin-bottom:1.5rem}
+.story-left .etro-story-label{position:relative;z-index:1}
+.story-left .etro-story-title{position:relative;z-index:1}
+.story-left .etro-story-desc{position:relative;z-index:1}
 
-.scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; animation: bounce 2s infinite; }
-.mouse { width: 26px; height: 40px; border: 2px solid var(--accent); border-radius: 13px; display: flex; align-items: flex-start; justify-content: center; padding-top: 8px; }
-.wheel { width: 3px; height: 8px; background: var(--accent); border-radius: 2px; animation: wheel 1.5s infinite; }
+/* Story Features */
+.story-features{display:flex;gap:2rem;margin:2rem 0;position:relative;z-index:1}
+.story-feature{display:flex;align-items:flex-start;gap:.7rem}
+.story-feature-icon{width:38px;height:38px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.75rem;flex-shrink:0;transition:all .3s}
+.story-feature:hover .story-feature-icon{background:var(--black);color:var(--accent-light);border-color:var(--black);transform:translateY(-2px)}
+.story-feature strong{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--black);font-weight:600}
+.story-feature span{font-size:.65rem;color:var(--text-light);letter-spacing:.04em}
 
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideInRight { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-@keyframes wheel { 0%,100% { opacity: 0; transform: translateY(0); } 50% { opacity: 1; transform: translateY(5px); } }
-@keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+.story-stats{display:flex;align-items:center;gap:2rem;margin:1.5rem 0;position:relative;z-index:1;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.story-stat{text-align:center}
+.story-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--black);line-height:1}
+.story-stat-plus{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--accent);font-weight:300}
+.story-stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light);margin-top:.3rem}
+.story-stat-divider{width:1px;height:40px;background:var(--border)}
+.story-cta{display:inline-flex;align-items:center;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--black);text-decoration:none;padding:.8rem 0;border-bottom:1px solid var(--black);transition:all .3s;position:relative;z-index:1;margin-top:.5rem}
+.story-cta:hover{color:var(--accent);border-color:var(--accent);padding-left:.5rem}
 
-/* === CATEGORY SECTION === */
-.category-section { background: var(--bg-light); padding: 5rem 0; }
-.category-card { background: var(--white); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.06); transition: all 0.3s; cursor: pointer; }
-.category-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(27,54,93,0.12); }
-.category-image { width: 100%; height: 200px; overflow: hidden; }
-.category-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.category-card:hover .category-image img { transform: scale(1.08); }
-.category-content { padding: 1.5rem; }
-.category-content h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-.category-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5; font-family: 'Inter', sans-serif; }
-.category-link { color: var(--accent); font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; text-decoration: none; }
-.category-link:hover { gap: 1rem; color: var(--primary); }
+/* Story Image Side */
+.story-right{position:relative;overflow:hidden;min-height:600px;background:var(--black)}
+.story-img-wrap{position:absolute;inset:0}
+.story-img{width:100%;height:120%;object-fit:cover;display:block;transition:transform 1s;position:absolute;top:-10%}
+.story-right:hover .story-img{transform:scale(1.03)}
+.story-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.3) 0%,transparent 50%);z-index:1}
+.story-img-badge{position:absolute;bottom:2rem;right:2rem;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);color:#fff;padding:1rem 1.5rem;text-align:center;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;line-height:1.4;z-index:2;border:1px solid rgba(255,255,255,.08)}
+.story-img-badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;letter-spacing:.05em;color:var(--accent-light)}
+.story-img-tag{position:absolute;top:2rem;left:2rem;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);color:var(--black);padding:.5rem 1rem;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:.4rem}
+.story-img-tag i{color:var(--accent)}
+@media(max-width:992px){.story-premium{grid-template-columns:1fr}.story-left{padding:3rem 2rem}.story-right{min-height:350px;position:relative}.story-img{position:relative;top:0;height:100%}.story-features{flex-direction:column;gap:1rem}.story-bg-text{font-size:10rem}}
 
-/* === PRODUCTS === */
-.products-section { background: var(--bg-light); padding: 5rem 0; }
-.product-card { background: var(--white); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.06); transition: all 0.3s; cursor: pointer; width: 280px; margin: 0 10px; }
-.product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(27,54,93,0.12); }
-.product-image { position: relative; width: 100%; height: 200px; overflow: hidden; }
-.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.product-card:hover .product-image img { transform: scale(1.08); }
-.product-badge { position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: var(--text-dark); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
-.product-badge.premium { background: var(--primary); color: #fff; }
-.product-badge.new { background: #16a34a; color: #fff; }
-.product-content { padding: 1.5rem; }
-.product-content h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-.product-content p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
-.product-specs { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.85rem; }
-.spec { color: var(--text-light); font-family: 'Inter', sans-serif; }
-.spec i { color: var(--accent); margin-right: 0.3rem; }
-.product-link { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; }
-.product-link:hover { gap: 1rem; color: var(--accent); }
-.product-card-link { text-decoration: none; color: inherit; }
-.product-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
-.product-price { font-weight: 700; color: var(--primary); font-size: 1rem; }
-.product-moq { font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 0.2rem 0.6rem; border-radius: 4px; }
-.product-desc { color: var(--text-light); font-size: 0.9rem; font-family: 'Inter', sans-serif; }
 
-/* === ABOUT SECTION === */
-.about-section { padding: 5rem 0; background: var(--white); }
-.about-image-container { position: relative; height: 400px; animation: fadeInLeft 1s ease 0.3s both; }
-.about-image-main { width: 100%; height: 100%; border-radius: var(--border-radius); position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(27,54,93,0.15); }
-.about-image-main img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); }
-.about-image-secondary { position: absolute; width: 120px; height: 120px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: var(--border-radius); bottom: -20px; right: -20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); animation: float 3s ease-in-out infinite; display: flex; align-items: center; justify-content: center; }
-.about-image-secondary span { color: var(--text-dark); font-weight: 800; font-size: 1.1rem; text-align: center; line-height: 1.2; font-family: 'Playfair Display', serif; }
+/* === FABRIC GRID — PREMIUM === */
+.etro-fabrics{padding:0;background:var(--white)}
 
-.features-list { display: flex; flex-direction: column; gap: 1.5rem; }
-.feature-item { display: flex; gap: 1.5rem; }
-.feature-icon { width: 60px; min-width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.5rem; transition: all 0.3s; }
-.feature-item:hover .feature-icon { transform: scale(1.1) rotate(5deg); }
-.feature-content h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-.feature-content p { color: var(--text-light); font-size: 0.95rem; margin: 0; font-family: 'Inter', sans-serif; }
+/* Section Header */
+.fab-header{text-align:center;padding:5rem 2rem 3rem;max-width:600px;margin:0 auto}
+.fab-header-line{width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));margin:0 auto 1.2rem}
+.fab-header-label{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;font-weight:500}
+.fab-header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;color:var(--black);line-height:1.2;margin-bottom:1rem}
+.fab-header-desc{font-size:.85rem;color:var(--text-light);line-height:1.7}
 
-/* === SERVICES === */
-.services-section { background: var(--dark-bg); padding: 5rem 0; position: relative; color: var(--white); }
-.service-background { position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%, rgba(198,169,78,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(27,54,93,0.08) 0%, transparent 50%); z-index: 1; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; position: relative; z-index: 5; }
-.service-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(198,169,78,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: var(--border-radius); transition: all 0.3s; }
-.service-card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); transform: translateY(-5px); }
-.service-number { font-size: 3rem; font-weight: 800; color: rgba(198,169,78,0.15); margin-bottom: 1rem; font-family: 'Montserrat', sans-serif; }
-.service-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-size: 1.3rem; margin-bottom: 1rem; transition: all 0.3s; }
-.service-card:hover .service-icon { transform: rotate(10deg) scale(1.1); }
-.service-card h3 { color: var(--white); margin-bottom: 1rem; font-size: 1.2rem; }
-.service-card p { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.6; font-family: 'Inter', sans-serif; }
+.etro-fabrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.etro-fabric-card{display:block;text-decoration:none;color:inherit;background:var(--white);overflow:hidden;transition:all .5s}
+.etro-fabric-card:hover{background:var(--bg)}
+.etro-fabric-img{width:100%;height:380px;overflow:hidden;position:relative}
+.etro-fabric-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.1,.25,1)}
+.etro-fabric-card:hover .etro-fabric-img img{transform:scale(1.08)}
 
-/* === TESTIMONIALS === */
-.testimonials-section { background: var(--white); padding: 5rem 0; }
-.clients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
-.client-logo-card { animation: fadeInUp 0.6s ease both; }
-.client-logo { background: var(--bg-light); padding: 2rem; border-radius: var(--border-radius); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; transition: all 0.3s; cursor: pointer; }
-.client-logo:hover { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); transform: scale(1.05); }
-.client-logo i { font-size: 2rem; }
-.client-logo p { font-weight: 600; font-size: 0.9rem; }
-.testimonials-carousel { position: relative; }
-.testimonial-card { background: var(--bg-light); padding: 2rem; border-radius: var(--border-radius); border-left: 4px solid var(--accent); opacity: 0; visibility: hidden; position: absolute; top: 0; left: 0; right: 0; }
-.testimonial-card.active { opacity: 1; visibility: visible; position: relative; animation: fadeInUp 0.5s ease; }
-.testimonial-stars { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; }
-.testimonial-text { font-size: 1.1rem; color: var(--text-dark); font-style: italic; margin-bottom: 1rem; line-height: 1.6; }
-.testimonial-author { color: var(--text-light); font-weight: 600; font-size: 0.95rem; }
+/* Hover Overlay */
+.fab-card-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s;z-index:2}
+.etro-fabric-card:hover .fab-card-overlay{opacity:1}
+.fab-view-btn{color:#fff;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;border:1px solid rgba(255,255,255,.5);transition:all .3s;display:flex;align-items:center;gap:.5rem}
+.fab-view-btn:hover{background:#fff;color:var(--black)}
 
-/* === CONTACT === */
-.contact-section { position: relative; padding: 5rem 0; color: var(--white); }
-.contact-background { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary), #0d1b33, var(--dark-bg)); z-index: 1; }
-.contact-background::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 100% 0%, rgba(198,169,78,0.1) 0%, transparent 50%); z-index: 1; }
-.contact-info-col { position: relative; z-index: 5; }
-.contact-info-list { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem; }
-.contact-info-item { display: flex; gap: 1rem; align-items: flex-start; }
-.contact-info-item i { font-size: 1.5rem; color: var(--accent); min-width: 30px; }
-.contact-info-item h5 { color: var(--white); margin-bottom: 0.5rem; font-size: 1rem; }
-.contact-info-item p { margin: 0; color: rgba(255,255,255,0.85); font-size: 0.95rem; font-family: 'Inter', sans-serif; }
-.contact-form { background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); padding: 2rem; border-radius: var(--border-radius); border: 1px solid rgba(198,169,78,0.15); position: relative; z-index: 5; }
-.form-group { margin-bottom: 1.5rem; }
-.contact-form .form-control { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--white); padding: 0.75rem 1rem; border-radius: var(--border-radius); font-size: 0.95rem; transition: all 0.3s; }
-.contact-form .form-control::placeholder { color: rgba(255,255,255,0.5); }
-.contact-form .form-control:focus { background: rgba(255,255,255,0.12); border-color: var(--accent); color: var(--white); box-shadow: 0 0 0 3px rgba(198,169,78,0.15); outline: none; }
-.contact-form textarea.form-control { resize: none; font-family: 'Inter', sans-serif; }
-.contact-form .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--text-dark); font-weight: 700; border: none; transition: all 0.3s; padding: 0.75rem; border-radius: var(--border-radius); cursor: pointer; font-size: 1rem; }
-.contact-form .btn-primary:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(198,169,78,0.3); }
+/* Badges */
+.fab-badge{position:absolute;top:1rem;left:1rem;background:var(--black);color:#fff;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;padding:.35rem .8rem;z-index:3}
+.fab-badge.bestseller{background:var(--accent)}
+.fab-badge.new{background:#2d6a4f}
 
-/* === FOOTER === */
-.footer-section { background: var(--dark-bg); color: var(--white); padding: 3rem 0; }
-.footer-title { color: var(--accent); font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700; }
-.footer-section p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; font-family: 'Inter', sans-serif; }
-.footer-links { list-style: none; padding: 0; }
-.footer-links li { margin-bottom: 0.8rem; }
-.footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; transition: all 0.3s; font-size: 0.9rem; }
-.footer-links a:hover { color: var(--accent); transform: translateX(5px); display: inline-block; }
-.social-links { display: flex; gap: 1rem; }
-.social-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border: 1px solid rgba(198,169,78,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); transition: all 0.3s; text-decoration: none; }
-.social-icon:hover { background: var(--accent); border-color: var(--accent); color: var(--text-dark); transform: translateY(-3px); }
-footer hr { border-color: rgba(255,255,255,0.1); }
+.etro-fabric-info{padding:1.2rem 1.5rem 1.5rem;text-align:left;position:relative}
+.etro-fabric-info h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;margin-bottom:.3rem;letter-spacing:.02em}
+.etro-fabric-info span{display:block;font-size:.75rem;color:var(--text-light);letter-spacing:.08em}
+.etro-fabric-price{margin-top:.4rem;color:var(--accent)!important;font-weight:500;font-size:.8rem!important;letter-spacing:.05em!important}
+
+/* View All Footer */
+.fab-footer{text-align:center;padding:3rem 2rem 4rem;background:var(--white)}
+.fab-view-all{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--black);text-decoration:none;padding:.9rem 2.5rem;border:1px solid var(--black);transition:all .3s}
+.fab-view-all:hover{background:var(--black);color:#fff}
+
+/* === COLLECTION PANELS === */
+.etro-collections{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--bg)}
+.etro-collection-panel{position:relative;height:500px;overflow:hidden;text-decoration:none;color:#fff;display:block}
+.etro-collection-img{position:absolute;inset:0}
+.etro-collection-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.etro-collection-panel:hover .etro-collection-img img{transform:scale(1.05)}
+.etro-collection-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;z-index:2}
+.etro-collection-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.5rem}
+.etro-collection-overlay h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:.8rem}
+.etro-collection-cta{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .3s;display:inline-flex;align-items:center;gap:.5rem}
+.etro-collection-panel:hover .etro-collection-cta{color:#fff}
 
 /* === STATS === */
-.stats-section { background: var(--primary); padding: 4rem 0; }
-.stat-item { text-align: center; color: var(--white); }
-.stat-number { font-size: 3rem; font-weight: 800; color: var(--accent); font-family: 'Montserrat', sans-serif; }
-.stat-label { font-size: 1rem; color: rgba(255,255,255,0.85); margin-top: 0.5rem; font-family: 'Inter', sans-serif; }
+.etro-stats{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 2rem}
+.etro-stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.etro-stat-num{display:block;font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--black);margin-bottom:.3rem}
+.etro-stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light)}
 
-/* === PRODUCT CATEGORY PAGE === */
-.product-category-section { padding-top: 100px; }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+/* === SERVICES PREVIEW === */
+/* === SERVICES PREVIEW — PREMIUM DARK === */
+.srv-preview{position:relative;padding:6rem 2rem;background:var(--black);overflow:hidden}
+.srv-preview-bg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:30px 30px;pointer-events:none}
+.srv-preview-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.srv-preview-header{text-align:center;margin-bottom:3.5rem}
+.srv-preview-line{width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));margin:0 auto 1.2rem}
+.srv-preview-label{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.8rem;font-weight:500}
+.srv-preview-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:#fff;line-height:1.2;margin-bottom:1rem}
+.srv-preview-desc{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:500px;margin:0 auto}
 
-/* === CTA SECTION === */
-.cta-section { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); padding: 5rem 0; }
-.cta-section .section-title { color: var(--white); }
+.srv-preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.srv-preview-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:2.5rem 2rem;position:relative;transition:all .4s;overflow:hidden}
+.srv-preview-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.srv-preview-card:hover::before{transform:scaleX(1)}
+.srv-preview-card:hover{background:rgba(255,255,255,.06);border-color:rgba(139,115,85,.2);transform:translateY(-4px)}
+
+.srv-card-icon{width:48px;height:48px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--accent-light);font-size:1rem;margin-bottom:1.2rem;transition:all .4s}
+.srv-preview-card:hover .srv-card-icon{background:var(--accent);color:#fff;border-color:var(--accent);transform:rotate(-5deg) scale(1.05)}
+
+.srv-card-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(255,255,255,.04);position:absolute;top:1rem;right:1.2rem;line-height:1;transition:color .4s}
+.srv-preview-card:hover .srv-card-num{color:rgba(139,115,85,.15)}
+
+.srv-preview-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:#fff;margin-bottom:.6rem;letter-spacing:.02em}
+.srv-preview-card p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:1rem}
+
+.srv-card-link{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:all .3s;opacity:0;transform:translateY(8px)}
+.srv-preview-card:hover .srv-card-link{opacity:1;transform:translateY(0)}
+.srv-card-link:hover{gap:.8rem;color:#fff}
+
+.srv-preview-footer{text-align:center;margin-top:3rem}
+.srv-preview-cta{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light);text-decoration:none;padding:.9rem 2.5rem;border:1px solid rgba(139,115,85,.3);transition:all .3s}
+.srv-preview-cta:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+@media(max-width:992px){.srv-preview-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.srv-preview-grid{grid-template-columns:1fr}}
+
+
+/* === SAMPLE CTA === */
+.etro-sample-cta{background:var(--black);padding:5rem 2rem;text-align:center;color:#fff}
+.etro-sample-inner{max-width:600px;margin:0 auto}
+.etro-sample-inner h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:.8rem}
+.etro-sample-inner p{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:2rem;line-height:1.6}
+.etro-sample-btn{display:inline-block;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:#fff;padding:1rem 3rem;text-decoration:none;transition:all .4s}
+.etro-sample-btn:hover{background:var(--accent-light);color:var(--black)}
+
+/* === FOOTER === */
+.etro-footer{background:var(--dark);color:#fff;padding:4rem 2rem 1.5rem}
+.etro-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.etro-footer-col h5{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.2rem;font-family:'Inter',sans-serif;font-weight:500}
+.etro-footer-col ul{list-style:none;padding:0}
+.etro-footer-col li{margin-bottom:.6rem}
+.etro-footer-col a{color:rgba(255,255,255,.4);font-size:.85rem;text-decoration:none;transition:color .3s}
+.etro-footer-col a:hover{color:var(--accent-light)}
+.etro-footer-bottom{max-width:1100px;margin:1.5rem auto 0;text-align:center;font-size:.7rem;color:rgba(255,255,255,.25);letter-spacing:.1em}
+
+/* === PREMIUM FOOTER === */
+.ft{background:var(--dark);color:#fff;position:relative;overflow:hidden}
+.ft::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.ft-top{padding:4rem 2rem 3rem}
+.ft-top-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem}
+.ft-brand{padding-right:2rem}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:#fff;text-decoration:none;display:block;margin-bottom:1rem;letter-spacing:.05em}
+.ft-brand p{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.7;margin-bottom:1.5rem}
+.ft-social{display:flex;gap:.5rem}
+.ft-social-icon{width:36px;height:36px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;transition:all .4s;font-size:.85rem}
+.ft-social-icon:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-3px)}
+.ft-col h5{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.2rem;font-family:'Inter',sans-serif;font-weight:500}
+.ft-col ul{list-style:none;padding:0}
+.ft-col li{margin-bottom:.6rem}
+.ft-col a{color:rgba(255,255,255,.35);font-size:.85rem;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center}
+.ft-col a:hover{color:var(--accent-light);padding-left:4px}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.5rem 2rem}
+.ft-bottom-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:rgba(255,255,255,.2);letter-spacing:.08em}
+@media(max-width:992px){.ft-top-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:576px){.ft-top-inner{grid-template-columns:1fr;gap:1.5rem}.ft-bottom-inner{flex-direction:column;gap:.5rem;text-align:center}}
+
+
+/* === WHATSAPP === */
+.whatsapp-float{position:fixed;bottom:30px;right:30px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,.3);z-index:999;transition:all .3s;text-decoration:none}
+.whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 25px rgba(37,211,102,.4)}
+
+/* === PAGE HEADER === */
+.etro-page-header{padding:10rem 2rem 4rem;text-align:center;background:var(--white);border-bottom:1px solid var(--border)}
+.etro-page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:var(--black);margin-bottom:.5rem}
+.etro-page-header p{font-size:.85rem;color:var(--text-light);letter-spacing:.1em}
+
+/* === ABOUT PAGE === */
+.etro-about-section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.etro-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.etro-about-img{width:100%;height:450px;overflow:hidden}
+.etro-about-img img{width:100%;height:100%;object-fit:cover}
+.etro-about-text h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:1rem}
+.etro-about-text p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:1rem}
+.etro-about-features{list-style:none;padding:0;margin-top:1.5rem}
+.etro-about-features li{padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--text);display:flex;align-items:center;gap:.8rem}
+.etro-about-features li i{color:var(--accent);font-size:.8rem}
+
+/* === LEADERS === */
+.etro-leaders{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);max-width:800px;margin:0 auto}
+.etro-leader-card{background:var(--white);padding:3rem;text-align:center}
+.etro-leader-avatar{width:80px;height:80px;background:var(--black);border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center}
+.etro-leader-avatar i{color:var(--accent-light);font-size:2rem}
+.etro-leader-card h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:.3rem}
+.etro-leader-card .role{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;display:block}
+.etro-leader-card p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+
+/* === MVV CARDS === */
+.etro-mvv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:1000px;margin:0 auto}
+.etro-mvv-card{background:var(--white);padding:2.5rem;text-align:center}
+.etro-mvv-card i{font-size:1.5rem;color:var(--accent);margin-bottom:1rem;display:block}
+.etro-mvv-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;margin-bottom:.6rem}
+.etro-mvv-card p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+
+/* === CONTACT PAGE === */
+.etro-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;margin:0 auto;padding:4rem 2rem}
+.etro-contact-info h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:1.5rem}
+.etro-contact-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem}
+.etro-contact-item i{color:var(--accent);font-size:1rem;margin-top:3px}
+.etro-contact-item h5{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:.3rem;font-family:'Inter',sans-serif;font-weight:500}
+.etro-contact-item p{font-size:.85rem;color:var(--text-light);line-height:1.5;margin:0}
+.etro-form{background:var(--white);padding:2.5rem;border:1px solid var(--border)}
+.etro-form h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;margin-bottom:1.5rem}
+.etro-form input,.etro-form textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--border);background:var(--bg);font-family:'Inter',sans-serif;font-size:.85rem;margin-bottom:1rem;transition:border-color .3s;outline:none}
+.etro-form input:focus,.etro-form textarea:focus{border-color:var(--accent)}
+.etro-form textarea{resize:none;height:100px}
+.etro-form button{width:100%;padding:1rem;background:var(--black);color:#fff;border:none;font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.etro-form button:hover{background:var(--accent)}
+
+/* === SERVICES PAGE === */
+.etro-services-full{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+.etro-services-full-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.etro-service-full-card{background:var(--white);padding:2.5rem;transition:background .3s}
+.etro-service-full-card:hover{background:var(--bg)}
+.etro-service-full-card .num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:rgba(139,115,85,.15);margin-bottom:.5rem;display:block}
+.etro-service-full-card i{color:var(--accent);font-size:1.2rem;margin-bottom:1rem;display:block}
+.etro-service-full-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;margin-bottom:.5rem}
+.etro-service-full-card p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+
+/* === CLIENTS PAGE === */
+.etro-clients-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);max-width:1000px;margin:0 auto}
+.etro-client-card{background:var(--white);padding:2rem;text-align:center;transition:background .3s;cursor:default}
+.etro-client-card:hover{background:var(--bg)}
+.etro-client-card i{font-size:1.8rem;color:var(--accent);margin-bottom:.5rem;display:block}
+.etro-client-card p{font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.etro-testimonial{max-width:700px;margin:3rem auto;background:var(--white);padding:2.5rem;border-left:2px solid var(--accent);text-align:left}
+.etro-testimonial.hidden{display:none}
+.etro-testimonial q{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;line-height:1.7;color:var(--text);display:block;margin-bottom:1rem}
+.etro-testimonial cite{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-style:normal}
 
 /* === RESPONSIVE === */
-html, body { max-width: 100vw; overflow-x: hidden; }
-
-@media (max-width: 992px) {
-    .hero-section .row { row-gap: 2rem; }
-    .hero-content { text-align: center; }
-    .hero-buttons { justify-content: center; }
-    .about-image-container { height: auto; }
-    .services-grid { width: 100%; }
+@media(max-width:992px){
+    .etro-nav-center{display:none}
+    .etro-menu-btn{display:flex}
+    .etro-fabrics-grid{grid-template-columns:repeat(2,1fr)}
+    .etro-collections{grid-template-columns:1fr}
+    .etro-collection-panel{height:350px}
+    .etro-services-grid{grid-template-columns:repeat(2,1fr)}
+    .etro-stats-inner{grid-template-columns:repeat(2,1fr)}
+    .etro-about-grid{grid-template-columns:1fr;gap:2rem}
+    .etro-about-img{height:300px}
+    .etro-contact-grid{grid-template-columns:1fr;gap:2rem}
+    .etro-services-full-grid{grid-template-columns:repeat(2,1fr)}
+    .etro-mvv-grid{grid-template-columns:1fr}
+    .etro-clients-grid{grid-template-columns:repeat(3,1fr)}
 }
-
-@media (max-width: 768px) {
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .hero-images { display: none; }
-    .hero-title { font-size: 2rem; }
-    .hero-subtitle { font-size: 1rem; }
-    .about-image-container { margin-bottom: 2rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .contact-form { margin-top: 2rem; }
-    .clients-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-    .product-grid { grid-template-columns: 1fr 1fr; }
-    nav .md\:flex { display: none; }
-    .mobile-menu { max-width: 100%; }
+@media(max-width:576px){
+    .etro-fabrics-grid{grid-template-columns:1fr}
+    .etro-fabric-img{height:280px}
+    .etro-nav{padding:.8rem 1rem}
+    .etro-logo{font-size:1.3rem}
+    .etro-hero-title{font-size:2.5rem}
+    .etro-services-grid{grid-template-columns:1fr}
+    .etro-stats-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+    .etro-footer-inner{grid-template-columns:1fr;gap:2rem}
 }
-
-@media (max-width: 576px) {
-    .section-title { font-size: 1.8rem; word-wrap: break-word; }
-    .hero-section { padding-top: 60px; }
-    .product-grid { grid-template-columns: 1fr; }
-}
-
-/* === SWIPER CRITICAL FIXES === */
-.swiper { width: 100%; overflow: hidden; position: relative; }
-.swiper-wrapper { display: flex; }
-.swiper-slide { flex-shrink: 0; width: auto; opacity: 1 !important; visibility: visible !important; }
-.swiper-button-next, .swiper-button-prev { color: var(--accent) !important; top: 50%; z-index: 10; }
-.swiper-button-next::after, .swiper-button-prev::after { font-size: 1.2rem !important; }
-
-/* Force visibility on all content cards */
-.category-card, .product-card, .service-card, .client-logo-card, .feature-item, .contact-info-item, .contact-form {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Swiper slide cards need full width */
-.category-slider .swiper-slide { height: auto; }
-.category-slider .category-card { height: 100%; }
-.products-slider .swiper-slide { height: auto; }
-.products-slider .product-card { width: 100%; margin: 0; }
-
-/* === WHATSAPP FLOAT === */
-.whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 999; transition: all 0.3s; text-decoration: none; }
-.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }

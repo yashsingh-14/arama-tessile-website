@@ -1,141 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Clients — Arama Tessile LLP | Trusted by Industry Leaders</title>
-    <meta name="description" content="Arama Tessile is trusted by 500+ garment manufacturers, fashion houses, and textile distributors across India.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients â€” Arama Tessile LLP | Trusted by 500+ Manufacturers</title>
+    <meta name="description" content="Arama Tessile â€” trusted B2B textile partner for 500+ garment manufacturers across India.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+    /* === CLIENTS PAGE â€” ULTRA PREMIUM === */
+    .cl-hero{position:relative;height:55vh;min-height:380px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+    .cl-hero-grid{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(196,180,152,.6) 80px,rgba(196,180,152,.6) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(196,180,152,.6) 80px,rgba(196,180,152,.6) 81px)}
+    .cl-hero-orb{position:absolute;border-radius:50%;filter:blur(80px);z-index:1}
+    .cl-hero-orb.a{width:400px;height:400px;background:rgba(139,115,85,.1);top:-100px;right:-100px}
+    .cl-hero-orb.b{width:300px;height:300px;background:rgba(196,180,152,.08);bottom:-80px;left:-80px}
+    .cl-hero-content{position:relative;z-index:3;text-align:center}
+    .cl-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:#fff;margin-bottom:.8rem;line-height:1.1}
+    .cl-hero-content p{font-size:1rem;color:rgba(255,255,255,.45);max-width:450px;margin:0 auto;line-height:1.7}
+    .cl-hero-badge{display:inline-flex;align-items:center;gap:.8rem;margin-top:2rem;padding:.8rem 2rem;border:1px solid rgba(139,115,85,.3);color:var(--accent-light);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;animation:badgePulse 3s infinite}
+    @keyframes badgePulse{0%,100%{border-color:rgba(139,115,85,.2)}50%{border-color:rgba(139,115,85,.5)}}
+
+    /* Trust Stats */
+    .cl-trust{padding:0;background:var(--white);border-bottom:1px solid var(--border)}
+    .cl-trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .cl-trust-item{padding:3.5rem 2rem;text-align:center;border-right:1px solid var(--border);transition:background .4s}
+    .cl-trust-item:last-child{border-right:none}
+    .cl-trust-item:hover{background:var(--black)}
+    .cl-trust-item:hover .cl-trust-num{color:#fff}
+    .cl-trust-item:hover .cl-trust-label{color:rgba(255,255,255,.5)}
+    .cl-trust-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--black);transition:color .4s;line-height:1}
+    .cl-trust-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light);margin-top:.5rem;transition:color .4s}
+    .cl-trust-num sup{font-size:1.2rem;color:var(--accent)}
+
+    /* Industry Grid */
+    .cl-industries{padding:6rem 2rem;background:var(--bg)}
+    .cl-ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:1000px;margin:3rem auto 0}
+    .cl-ind-card{background:var(--white);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;transition:all .5s;cursor:default}
+    .cl-ind-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transition:transform .5s;transform-origin:left}
+    .cl-ind-card:hover::before{transform:scaleX(1)}
+    .cl-ind-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.06)}
+    .cl-ind-card i{font-size:2rem;color:var(--accent);margin-bottom:1.2rem;display:block;transition:transform .4s}
+    .cl-ind-card:hover i{transform:scale(1.15) rotate(-5deg)}
+    .cl-ind-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;margin-bottom:.5rem}
+    .cl-ind-card p{font-size:.8rem;color:var(--text-light);line-height:1.5}
+
+    /* Testimonials Carousel */
+    .cl-testimonials{padding:6rem 2rem;background:var(--white);overflow:hidden}
+    .cl-test-track{max-width:900px;margin:3rem auto 0;position:relative;min-height:280px}
+    .cl-test-card{position:absolute;inset:0;opacity:0;transform:translateX(40px);transition:all .7s cubic-bezier(.25,.1,.25,1);pointer-events:none}
+    .cl-test-card.active{opacity:1;transform:translateX(0);pointer-events:auto}
+    .cl-test-card.prev{opacity:0;transform:translateX(-40px)}
+    .cl-test-inner{background:var(--bg);padding:3rem;position:relative;border-left:3px solid var(--accent)}
+    .cl-test-quote{position:absolute;top:1.5rem;right:2rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(139,115,85,.08);line-height:1}
+    .cl-test-stars{color:var(--accent);font-size:.85rem;letter-spacing:.15em;margin-bottom:1rem}
+    .cl-test-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:1.5rem}
+    .cl-test-author{display:flex;align-items:center;gap:1rem}
+    .cl-test-avatar{width:48px;height:48px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent-light);font-size:1.2rem}
+    .cl-test-meta h5{font-size:.85rem;font-weight:500;margin-bottom:.1rem}
+    .cl-test-meta span{font-size:.7rem;color:var(--text-light);letter-spacing:.1em;text-transform:uppercase}
+    .cl-test-nav{display:flex;justify-content:center;gap:1rem;margin-top:2rem}
+    .cl-test-btn{width:40px;height:40px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;color:var(--text-light);font-size:.8rem}
+    .cl-test-btn:hover{background:var(--black);color:#fff;border-color:var(--black)}
+    .cl-test-dots{display:flex;gap:.4rem;align-items:center;margin:0 1rem}
+    .cl-test-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:all .3s;cursor:pointer}
+    .cl-test-dot.active{background:var(--accent);width:20px;border-radius:3px}
+
+    /* Partnership CTA */
+    .cl-partner{position:relative;padding:6rem 2rem;background:var(--black);text-align:center;overflow:hidden}
+    .cl-partner-lines{position:absolute;inset:0;overflow:hidden;opacity:.06}
+    .cl-partner-line{position:absolute;width:1px;background:linear-gradient(to bottom,transparent,var(--accent-light),transparent);animation:partLine 4s infinite}
+    .cl-partner-line:nth-child(1){left:10%;height:100%;animation-delay:0s}
+    .cl-partner-line:nth-child(2){left:30%;height:80%;animation-delay:1s}
+    .cl-partner-line:nth-child(3){left:50%;height:90%;animation-delay:2s}
+    .cl-partner-line:nth-child(4){left:70%;height:70%;animation-delay:0.5s}
+    .cl-partner-line:nth-child(5){left:90%;height:85%;animation-delay:1.5s}
+    @keyframes partLine{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+    .cl-partner-content{position:relative;z-index:2}
+    .cl-partner h3{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:#fff;margin-bottom:.8rem}
+    .cl-partner p{color:rgba(255,255,255,.4);max-width:500px;margin:0 auto 2rem;line-height:1.7}
+    .cl-partner-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .cl-partner-btn{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;transition:all .4s}
+    .cl-partner-btn.primary{background:#fff;color:var(--black)}
+    .cl-partner-btn.primary:hover{background:var(--accent-light)}
+    .cl-partner-btn.secondary{border:1px solid rgba(255,255,255,.3);color:#fff}
+    .cl-partner-btn.secondary:hover{background:#fff;color:var(--black);border-color:#fff}
+
+    @media(max-width:992px){.cl-trust-grid{grid-template-columns:repeat(2,1fr)}.cl-trust-item{border-bottom:1px solid var(--border)}.cl-ind-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:576px){.cl-trust-grid{grid-template-columns:1fr}.cl-ind-grid{grid-template-columns:1fr}.cl-partner h3{font-size:1.8rem}.cl-partner-btns{flex-direction:column;align-items:center}}
+    </style>
 </head>
 <body>
-<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-underline font-semibold">Home</a><a href="about.html" class="nav-underline font-semibold">About</a><a href="products.html" class="nav-underline font-semibold">Products</a>
-            <a href="services.html" class="nav-underline font-semibold">Services</a>
-            <a href="clients.html" class="nav-underline font-semibold active" aria-current="page">Clients</a>
-            <a href="contact.html" class="nav-underline font-semibold">Contact</a>
-            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+
+<div class="etro-topbar"><div class="etro-topbar-inner"><span>Premium Fabric Manufacturing & Wholesale â€” Since 2013</span></div></div>
+
+<header class="etro-header" id="site-header">
+    <nav class="etro-nav">
+        <div class="etro-nav-left"><a href="index.html" class="etro-logo"><span class="logo-word" data-text="ARAMA">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light" data-text="TESSILE">TESSILE</span></a></div>
+        <div class="etro-nav-center">
+            <a href="products.html" class="etro-nav-link">All Fabrics<span class="etro-nav-count">50+</span></a>
+            <a href="services.html" class="etro-nav-link">Services</a>
+            <a href="clients.html" class="etro-nav-link" style="font-weight:500;color:var(--black)">Clients</a>
+            <a href="contact.html" class="etro-nav-link">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="etro-nav-right">
+            <a href="about.html" class="etro-nav-icon"><i class="fas fa-info-circle"></i></a>
+            <a href="contact.html" class="etro-nav-icon"><i class="fas fa-swatchbook"></i></a>
+        </div>
+        <button class="etro-menu-btn" id="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
-    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
-        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a><a href="about.html" class="nav-underline font-semibold text-lg">About</a><a href="products.html" class="nav-underline font-semibold text-lg">Products</a><a href="services.html" class="nav-underline font-semibold text-lg">Services</a><a href="clients.html" class="nav-underline font-semibold text-lg active">Clients</a><a href="contact.html" class="nav-underline font-semibold text-lg">Contact</a>
-    </div>
 </header>
 
+<div id="mobile-menu" class="etro-mobile-menu closed">
+    <div class="etro-mobile-header"><span class="etro-logo"><span class="logo-word">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light">TESSILE</span></span><button id="mobile-menu-close"><i class="fas fa-times"></i></button></div>
+    <div class="etro-mobile-links"><a href="index.html">Home</a><a href="products.html">All Fabrics</a><a href="about.html">About</a><a href="services.html">Services</a><a href="clients.html" class="active">Clients</a><a href="contact.html">Contact</a></div>
+</div>
+
 <!-- Hero -->
-<section class="hero-section" style="min-height:50vh;">
-    <div class="hero-gradient"></div>
-    <div class="container-xxl h-100 d-flex align-items-center" style="position:relative;z-index:5;">
-        <div class="col-lg-8 mx-auto text-center hero-content">
-            <h1 class="hero-title">Our <span class="accent-text">Clients</span></h1>
-            <p class="hero-subtitle mx-auto" style="max-width:600px;text-align:center;">Trusted by garment manufacturers, fashion designers, and textile distributors across India and beyond.</p>
-        </div>
+<section class="cl-hero">
+    <div class="cl-hero-grid"></div>
+    <div class="cl-hero-orb a"></div>
+    <div class="cl-hero-orb b"></div>
+    <div class="cl-hero-content">
+        <p class="etro-story-label" style="color:var(--accent-light)">Our Partners</p>
+        <h1>Trusted by<br>Industry Leaders</h1>
+        <p>Building long-term partnerships with India's finest garment manufacturers since 2013.</p>
+        <div class="cl-hero-badge"><i class="fas fa-shield-alt"></i> 500+ Manufacturers Trust Us</div>
     </div>
 </section>
 
-<!-- Stats -->
-<section class="stats-section">
-    <div class="container-xxl">
-        <div class="row text-center g-4">
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="500">0</div><div class="stat-label">Happy Clients</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="15">0</div><div class="stat-label">States Served</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="98">0</div><div class="stat-label">% Repeat Rate</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="11">0</div><div class="stat-label">Years of Trust</div></div></div>
-        </div>
+<!-- Trust Stats -->
+<section class="cl-trust">
+    <div class="cl-trust-grid">
+        <div class="cl-trust-item"><div class="cl-trust-num" data-target="500">0</div><div class="cl-trust-label">Active Clients</div></div>
+        <div class="cl-trust-item"><div class="cl-trust-num" data-target="11">0</div><div class="cl-trust-label">Years of Trust</div></div>
+        <div class="cl-trust-item"><div class="cl-trust-num" data-target="98">0</div><div class="cl-trust-label">Repeat Order Rate (%)</div></div>
+        <div class="cl-trust-item"><div class="cl-trust-num" data-target="15">0</div><div class="cl-trust-label">States Served</div></div>
     </div>
 </section>
 
-<!-- Client Industries -->
-<section class="testimonials-section" id="clients">
-    <div class="container-xxl py-5">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title">Industries We Serve</h2>
-            <p class="section-subtitle">Diverse sectors trust Arama Tessile for their fabric needs</p>
-            <div class="divider"></div>
-        </div>
-        <div class="clients-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-tshirt"></i><p>Garment<br>Manufacturers</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-store"></i><p>Retail<br>Chains</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-gem"></i><p>Fashion<br>Designers</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-truck-loading"></i><p>Fabric<br>Distributors</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-globe-asia"></i><p>Export<br>Houses</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-home"></i><p>Home<br>Textiles</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-users"></i><p>Uniform<br>Suppliers</p></div></div>
-            <div class="client-logo-card"><div class="client-logo"><i class="fas fa-industry"></i><p>Industrial<br>Textiles</p></div></div>
-        </div>
+<!-- Industries We Serve -->
+<section class="cl-industries">
+    <div style="text-align:center">
+        <p class="etro-story-label">Industries</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300">Sectors We Serve</h2>
+    </div>
+    <div class="cl-ind-grid">
+        <div class="cl-ind-card"><i class="fas fa-tshirt"></i><h4>Garment Manufacturing</h4><p>Shirts, trousers, dresses & ethnic wear manufacturers</p></div>
+        <div class="cl-ind-card"><i class="fas fa-store"></i><h4>Retail Brands</h4><p>Private label and branded fashion retailers</p></div>
+        <div class="cl-ind-card"><i class="fas fa-gem"></i><h4>Fashion Designers</h4><p>Independent designers and couture houses</p></div>
+        <div class="cl-ind-card"><i class="fas fa-couch"></i><h4>Home Textiles</h4><p>Bedding, curtains & upholstery manufacturers</p></div>
+        <div class="cl-ind-card"><i class="fas fa-user-tie"></i><h4>Corporate Uniforms</h4><p>Uniform and workwear manufacturers</p></div>
+        <div class="cl-ind-card"><i class="fas fa-globe-asia"></i><h4>Export Houses</h4><p>International textile traders and exporters</p></div>
     </div>
 </section>
 
 <!-- Testimonials -->
-<section class="about-section" style="background:var(--bg-light);">
-    <div class="container-xxl py-5">
-        <div class="text-center mb-5"><h2 class="section-title">What Our Clients Say</h2><p class="section-subtitle">Real feedback from our valued partners</p><div class="divider"></div></div>
-        <div class="row g-4">
-            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
-                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Arama Tessile's cotton shirting quality is unmatched. Consistent GSM, excellent color fastness, and they always deliver on time. Our go-to supplier for 6 years now."</p>
-                <p style="font-weight:600;color:var(--primary);margin:0;">— Rajesh Mehta</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Garment Manufacturer, Mumbai</p>
-            </div></div>
-            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
-                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Their custom dyeing service is exceptional. We needed exact Pantone matching for our brand colors and Arama delivered perfect results on first attempt. Truly professional."</p>
-                <p style="font-weight:600;color:var(--primary);margin:0;">— Priya Sharma</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Fashion Designer, Delhi</p>
-            </div></div>
-            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
-                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Competitive pricing, flexible MOQ, and excellent bulk order management. We distribute across Gujarat and Arama has been our most reliable fabric source for printed cotton."</p>
-                <p style="font-weight:600;color:var(--primary);margin:0;">— Sunil Agarwal</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Textile Distributor, Surat</p>
-            </div></div>
+<section class="cl-testimonials">
+    <div style="text-align:center">
+        <p class="etro-story-label">Testimonials</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300">What Partners Say</h2>
+    </div>
+    <div class="cl-test-track">
+        <div class="cl-test-card active" data-idx="0">
+            <div class="cl-test-inner">
+                <div class="cl-test-quote">"</div>
+                <div class="cl-test-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="cl-test-text">Arama Tessile's fabric quality is consistently excellent. Their cotton shirting has become our go-to for premium shirt manufacturing. The consistency across batches is remarkable.</p>
+                <div class="cl-test-author"><div class="cl-test-avatar"><i class="fas fa-user"></i></div><div class="cl-test-meta"><h5>Rajesh Mehta</h5><span>Garment Manufacturer, Mumbai</span></div></div>
+            </div>
         </div>
-        <div class="row g-4 mt-2">
-            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
-                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"We switched to Arama for our woven fabric needs and haven't looked back. The twill weave quality at their price point is simply the best in the market."</p>
-                <p style="font-weight:600;color:var(--primary);margin:0;">— Mohammed Asif</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Trouser Manufacturer, Bangalore</p>
-            </div></div>
-            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
-                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"Their sample development is fast and accurate. We needed specific print designs on cotton for export and Arama's team delivered samples in just 5 days. Excellent service."</p>
-                <p style="font-weight:600;color:var(--primary);margin:0;">— Kavita Deshmukh</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Export House, Tirupur</p>
-            </div></div>
-            <div class="col-md-4"><div style="background:#fff;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-left:4px solid var(--accent);height:100%;">
-                <div style="color:var(--accent);margin-bottom:1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p style="font-style:italic;color:var(--text-dark);line-height:1.7;margin-bottom:1rem;">"What sets Arama apart is their transparency and professionalism. Clear pricing, no hidden costs, and they stand behind their quality. A true B2B partner."</p>
-                <p style="font-weight:600;color:var(--primary);margin:0;">— Deepak Jain</p><p style="color:var(--text-light);font-size:0.85rem;margin:0;">Retail Chain Owner, Kolkata</p>
-            </div></div>
+        <div class="cl-test-card" data-idx="1">
+            <div class="cl-test-inner">
+                <div class="cl-test-quote">"</div>
+                <div class="cl-test-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="cl-test-text">We've been sourcing printed cotton from Arama for 5 years now. Their custom dyeing service is unmatched â€” perfect Pantone color matching every single time. Truly professional.</p>
+                <div class="cl-test-author"><div class="cl-test-avatar"><i class="fas fa-user"></i></div><div class="cl-test-meta"><h5>Priya Sharma</h5><span>Fashion Designer, Delhi</span></div></div>
+            </div>
+        </div>
+        <div class="cl-test-card" data-idx="2">
+            <div class="cl-test-inner">
+                <div class="cl-test-quote">"</div>
+                <div class="cl-test-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="cl-test-text">Competitive pricing, on-time delivery, and excellent bulk order management. Arama Tessile understands the B2B textile business perfectly. Our go-to supplier for 3+ years.</p>
+                <div class="cl-test-author"><div class="cl-test-avatar"><i class="fas fa-user"></i></div><div class="cl-test-meta"><h5>Sunil Agarwal</h5><span>Textile Distributor, Surat</span></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="cl-test-nav">
+        <button class="cl-test-btn" onclick="prevTest()"><i class="fas fa-arrow-left"></i></button>
+        <div class="cl-test-dots"><span class="cl-test-dot active" onclick="goTest(0)"></span><span class="cl-test-dot" onclick="goTest(1)"></span><span class="cl-test-dot" onclick="goTest(2)"></span></div>
+        <button class="cl-test-btn" onclick="nextTest()"><i class="fas fa-arrow-right"></i></button>
+    </div>
+</section>
+
+<!-- Partnership CTA -->
+<section class="cl-partner">
+    <div class="cl-partner-lines"><div class="cl-partner-line"></div><div class="cl-partner-line"></div><div class="cl-partner-line"></div><div class="cl-partner-line"></div><div class="cl-partner-line"></div></div>
+    <div class="cl-partner-content">
+        <p class="etro-story-label" style="color:var(--accent-light)">Join Us</p>
+        <h3>Become a Partner</h3>
+        <p>Experience premium fabric quality, competitive pricing, and dedicated service that 500+ manufacturers already trust.</p>
+        <div class="cl-partner-btns">
+            <a href="contact.html" class="cl-partner-btn primary">Request Partnership</a>
+            <a href="https://wa.me/919999999999" class="cl-partner-btn secondary" target="_blank"><i class="fab fa-whatsapp" style="margin-right:.5rem"></i>Chat on WhatsApp</a>
         </div>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section"><div class="container-xxl py-5 text-center">
-    <h2 class="section-title mb-3" style="color:#fff;">Join 500+ Satisfied Clients</h2>
-    <p class="section-subtitle mb-4" style="color:rgba(255,255,255,0.8);">Experience the Arama Tessile difference — premium quality, competitive pricing, reliable delivery.</p>
-    <a href="contact.html" class="cta-btn px-5 py-3 rounded-lg font-bold shadow-lg" style="font-size:1.1rem;display:inline-block;"><i class="fas fa-handshake me-2"></i>Become a Client</a>
-</div></section>
+<footer class="ft"><div class="ft-top"><div class="ft-top-inner"><div class="ft-brand"><a href="index.html" class="ft-logo">Arama Tessile</a><p>Premium cotton fabric manufacturer & wholesaler based in Mumbai. Trusted by 500+ garment manufacturers since 2013.</p><div class="ft-social"><a href="#" class="ft-social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="ft-social-icon"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/919999999999" class="ft-social-icon"><i class="fab fa-whatsapp"></i></a></div></div><div class="ft-col"><h5>Fabrics</h5><ul><li><a href="products.html">All Fabrics</a></li><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div><div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="ft-col"><h5>Contact</h5><ul><li><a href="mailto:info@aramatessile.com"><i class="fas fa-envelope" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>info@aramatessile.com</a></li><li><a href="https://wa.me/919999999999"><i class="fab fa-whatsapp" style="width:16px;margin-right:.5rem;color:#25D366"></i>WhatsApp Us</a></li></ul></div></div></div><div class="ft-bottom"><div class="ft-bottom-inner"><span>&copy; 2024 Arama Tessile LLP. All rights reserved.</span><span>GSTIN: 27AAYFA8415D1Z7</span></div></div></footer>
 
-<footer class="footer-section">
-    <div class="container-xxl py-5">
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai.</p></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
-        </div>
-        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
-    </div>
-</footer>
 <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+/* === CLIENTS PAGE ANIMATIONS === */
+let testIdx = 0;
+const testCards = document.querySelectorAll('.cl-test-card');
+const testDots = document.querySelectorAll('.cl-test-dot');
+
+function goTest(idx) {
+    testCards.forEach(c => { c.classList.remove('active','prev'); });
+    testCards[testIdx]?.classList.add('prev');
+    testIdx = idx;
+    testCards[testIdx]?.classList.add('active');
+    testDots.forEach((d,i) => d.classList.toggle('active', i === testIdx));
+}
+function nextTest() { goTest((testIdx + 1) % testCards.length); }
+function prevTest() { goTest((testIdx - 1 + testCards.length) % testCards.length); }
+setInterval(nextTest, 6000);
+
+// Stat counters
+document.querySelectorAll('.cl-trust-num[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    ScrollTrigger.create({
+        trigger: el, start: 'top 85%', once: true,
+        onEnter: () => {
+            const dur = 2000, start = performance.now();
+            function tick(now) {
+                const p = Math.min((now - start) / dur, 1);
+                el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target);
+                if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+        }
+    });
+});
+
+// Hero reveal
+gsap.from('.cl-hero-orb.a', { scale: 0, opacity: 0, duration: 1.5, ease: 'power2.out', delay: 0.2 });
+gsap.from('.cl-hero-orb.b', { scale: 0, opacity: 0, duration: 1.5, ease: 'power2.out', delay: 0.5 });
+gsap.from('.cl-hero-content h1', { y: 50, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.3 });
+gsap.from('.cl-hero-content p', { y: 20, opacity: 0, duration: 0.8, delay: 0.6 });
+gsap.from('.cl-hero-badge', { y: 20, opacity: 0, duration: 0.8, delay: 0.9 });
+
+// Trust items
+document.querySelectorAll('.cl-trust-item').forEach((item, i) => {
+    gsap.from(item, { y: 30, opacity: 0, duration: 0.6, delay: i * 0.1, scrollTrigger: { trigger: item, start: 'top 90%', once: true }});
+});
+
+// Industry cards
+document.querySelectorAll('.cl-ind-card').forEach((card, i) => {
+    gsap.from(card, { y: 50, opacity: 0, scale: 0.9, duration: 0.7, delay: (i % 3) * 0.12, scrollTrigger: { trigger: card, start: 'top 88%', once: true }});
+});
+</script>
 </body>
 </html>

@@ -1,93 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services — Arama Tessile LLP | Textile Processing & Manufacturing</title>
-    <meta name="description" content="Arama Tessile's B2B services — bulk fabric supply, custom dyeing, printing, thread rolling, brushing, and pan-India delivery.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services â€” Arama Tessile LLP | Premium Textile Manufacturing</title>
+    <meta name="description" content="Arama Tessile's B2B textile services â€” bulk supply, custom dyeing, printing, fabric processing, sample development.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+    /* === SERVICES PAGE â€” PREMIUM OVERRIDES === */
+    .srv-hero{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+    .srv-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0d0d0d 100%)}
+    .srv-hero-pattern{position:absolute;inset:0;opacity:.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 50px,rgba(139,115,85,.5) 50px,rgba(139,115,85,.5) 51px),repeating-linear-gradient(90deg,transparent,transparent 50px,rgba(139,115,85,.5) 50px,rgba(139,115,85,.5) 51px)}
+    .srv-hero-glow{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(139,115,85,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:1}
+    .srv-hero-content{position:relative;z-index:3;text-align:center;color:#fff}
+    .srv-hero-content .etro-story-label{color:var(--accent-light)}
+    .srv-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:#fff;margin-bottom:1rem;line-height:1.1}
+    .srv-hero-content p{font-size:1rem;color:rgba(255,255,255,.5);max-width:500px;margin:0 auto;line-height:1.7}
+    .srv-hero-line{width:1px;height:80px;background:linear-gradient(to bottom,var(--accent-light),transparent);margin:2rem auto 0;animation:heroLine 2s infinite}
+    @keyframes heroLine{0%,100%{opacity:.3;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+    /* Intro text */
+    .srv-intro{padding:6rem 2rem;text-align:center;background:var(--white)}
+    .srv-intro-inner{max-width:700px;margin:0 auto}
+    .srv-intro h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;margin-bottom:1.5rem}
+    .srv-intro p{font-size:.95rem;color:var(--text-light);line-height:1.8}
+
+    /* Services Showcase */
+    .srv-showcase{background:var(--bg)}
+    .srv-row{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+    .srv-row.reverse .srv-visual{order:2}
+    .srv-row.reverse .srv-detail{order:1}
+    .srv-visual{position:relative;overflow:hidden;background:var(--black);display:flex;align-items:center;justify-content:center}
+    .srv-visual-icon{font-size:5rem;color:var(--accent);opacity:.15;transition:all .8s}
+    .srv-visual:hover .srv-visual-icon{opacity:.4;transform:scale(1.1) rotate(5deg)}
+    .srv-visual-number{position:absolute;top:2rem;left:2.5rem;font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;color:rgba(196,180,152,.08);line-height:1}
+    .srv-visual-bg{position:absolute;inset:0;opacity:.08}
+    .srv-visual-bg img{width:100%;height:100%;object-fit:cover}
+    .srv-detail{display:flex;flex-direction:column;justify-content:center;padding:4rem;background:var(--white)}
+    .srv-detail .etro-story-label{margin-bottom:.5rem}
+    .srv-detail h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:1rem;color:var(--black)}
+    .srv-detail p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .srv-features{list-style:none;padding:0;margin:0}
+    .srv-features li{padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--text);display:flex;align-items:center;gap:.8rem;transition:padding-left .3s}
+    .srv-features li:hover{padding-left:.5rem}
+    .srv-features li i{color:var(--accent);font-size:.7rem;min-width:16px}
+    .srv-detail-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:gap .3s}
+    .srv-detail-link:hover{gap:1rem;color:var(--black)}
+
+    /* Process Section */
+    .srv-process{padding:6rem 2rem;background:var(--black);color:#fff;position:relative;overflow:hidden}
+    .srv-process-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(139,115,85,.08) 0%,transparent 70%);bottom:-200px;right:-200px}
+    .srv-process-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+    .srv-timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:4rem;position:relative}
+    .srv-timeline::before{content:'';position:absolute;top:30px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+    .srv-step{text-align:center;padding:0 1rem}
+    .srv-step-dot{width:12px;height:12px;border:2px solid var(--accent);border-radius:50%;margin:0 auto 1.5rem;position:relative;z-index:2;background:var(--black);transition:all .4s}
+    .srv-step:hover .srv-step-dot{background:var(--accent);box-shadow:0 0 20px rgba(139,115,85,.4);transform:scale(1.3)}
+    .srv-step-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:rgba(196,180,152,.3);margin-bottom:.5rem}
+    .srv-step h4{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.4rem;font-family:'Inter',sans-serif;font-weight:500}
+    .srv-step p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.5}
+
+    /* Guarantee Banner */
+    .srv-guarantee{padding:5rem 2rem;background:var(--bg);text-align:center}
+    .srv-guarantee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);max-width:1000px;margin:2.5rem auto 0}
+    .srv-guarantee-item{background:var(--white);padding:2.5rem 1.5rem;transition:all .4s}
+    .srv-guarantee-item:hover{background:var(--black);color:#fff}
+    .srv-guarantee-item:hover i{color:var(--accent-light)}
+    .srv-guarantee-item:hover h4{color:#fff}
+    .srv-guarantee-item:hover p{color:rgba(255,255,255,.5)}
+    .srv-guarantee-item i{font-size:1.5rem;color:var(--accent);margin-bottom:1rem;display:block;transition:color .4s}
+    .srv-guarantee-item h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;margin-bottom:.4rem;transition:color .4s}
+    .srv-guarantee-item p{font-size:.8rem;color:var(--text-light);line-height:1.5;transition:color .4s}
+
+    @media(max-width:992px){
+        .srv-row{grid-template-columns:1fr}
+        .srv-row.reverse .srv-visual{order:1}
+        .srv-row.reverse .srv-detail{order:2}
+        .srv-visual{min-height:250px}
+        .srv-detail{padding:2.5rem}
+        .srv-timeline{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .srv-guarantee-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:576px){
+        .srv-timeline{grid-template-columns:1fr 1fr;gap:1.5rem}
+        .srv-guarantee-grid{grid-template-columns:1fr}
+        .srv-hero{height:50vh}
+    }
+    </style>
 </head>
 <body>
-<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-underline font-semibold">Home</a><a href="about.html" class="nav-underline font-semibold">About</a><a href="products.html" class="nav-underline font-semibold">Products</a>
-            <a href="services.html" class="nav-underline font-semibold active" aria-current="page">Services</a><a href="clients.html" class="nav-underline font-semibold">Clients</a><a href="contact.html" class="nav-underline font-semibold">Contact</a>
-            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+
+<div class="etro-topbar"><div class="etro-topbar-inner"><span>Premium Fabric Manufacturing & Wholesale â€” Since 2013</span></div></div>
+
+<header class="etro-header" id="site-header">
+    <nav class="etro-nav">
+        <div class="etro-nav-left"><a href="index.html" class="etro-logo"><span class="logo-word" data-text="ARAMA">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light" data-text="TESSILE">TESSILE</span></a></div>
+        <div class="etro-nav-center">
+            <a href="products.html" class="etro-nav-link">All Fabrics<span class="etro-nav-count">50+</span></a>
+            <a href="services.html" class="etro-nav-link" style="font-weight:500;color:var(--black)">Services</a>
+            <a href="clients.html" class="etro-nav-link">Clients</a>
+            <a href="contact.html" class="etro-nav-link">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="etro-nav-right">
+            <a href="about.html" class="etro-nav-icon" title="About"><i class="fas fa-info-circle"></i></a>
+            <a href="contact.html" class="etro-nav-icon" title="Samples"><i class="fas fa-swatchbook"></i></a>
+        </div>
+        <button class="etro-menu-btn" id="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
-    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
-        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a><a href="about.html" class="nav-underline font-semibold text-lg">About</a><a href="products.html" class="nav-underline font-semibold text-lg">Products</a><a href="services.html" class="nav-underline font-semibold text-lg active">Services</a><a href="clients.html" class="nav-underline font-semibold text-lg">Clients</a><a href="contact.html" class="nav-underline font-semibold text-lg">Contact</a>
-    </div>
 </header>
 
+<div id="mobile-menu" class="etro-mobile-menu closed">
+    <div class="etro-mobile-header"><span class="etro-logo"><span class="logo-word">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light">TESSILE</span></span><button id="mobile-menu-close" aria-label="Close"><i class="fas fa-times"></i></button></div>
+    <div class="etro-mobile-links"><a href="index.html">Home</a><a href="products.html">All Fabrics</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+</div>
+
 <!-- Hero -->
-<section class="hero-section" style="min-height:50vh;">
-    <div class="hero-gradient"></div>
-    <div class="container-xxl h-100 d-flex align-items-center" style="position:relative;z-index:5;">
-        <div class="col-lg-8 mx-auto text-center hero-content">
-            <h1 class="hero-title">Our <span class="accent-text">B2B Services</span></h1>
-            <p class="hero-subtitle mx-auto" style="max-width:600px;text-align:center;">Complete textile manufacturing, processing & supply solutions for garment manufacturers and fabric distributors.</p>
+<section class="srv-hero">
+    <div class="srv-hero-bg"></div>
+    <div class="srv-hero-pattern"></div>
+    <div class="srv-hero-glow"></div>
+    <div class="srv-hero-content">
+        <p class="etro-story-label">Our Expertise</p>
+        <h1>Textile Services<br>Redefined</h1>
+        <p>Complete B2B manufacturing, processing & supply chain solutions for India's garment industry.</p>
+        <div class="srv-hero-line"></div>
+    </div>
+</section>
+
+<!-- Intro -->
+<section class="srv-intro">
+    <div class="srv-intro-inner">
+        <p class="etro-story-label">What We Do</p>
+        <h2>End-to-End Textile Solutions</h2>
+        <p>From raw fabric sourcing to custom finishing â€” we provide every service a garment manufacturer needs. Our vertically integrated operations ensure quality control, competitive pricing, and reliable delivery at every step.</p>
+    </div>
+</section>
+
+<!-- Services Showcase â€” Alternating Full-Width -->
+<section class="srv-showcase">
+
+    <!-- Service 1 -->
+    <div class="srv-row">
+        <div class="srv-visual">
+            <div class="srv-visual-number">01</div>
+            <div class="srv-visual-bg"><img src="images/fabrics/cotton-shirting.png" alt="Bulk Supply"></div>
+            <i class="fas fa-scroll srv-visual-icon"></i>
+        </div>
+        <div class="srv-detail">
+            <p class="etro-story-label">Service 01</p>
+            <h3>Bulk Fabric Supply</h3>
+            <p>Large-volume orders of premium cotton fabrics with the most competitive pricing in Mumbai's textile market. Flexible payment terms and dedicated account management for every client.</p>
+            <ul class="srv-features">
+                <li><i class="fas fa-check"></i> Minimum order from 500 meters</li>
+                <li><i class="fas fa-check"></i> Volume-based tiered pricing</li>
+                <li><i class="fas fa-check"></i> Flexible payment terms â€” LC, advance, credit</li>
+                <li><i class="fas fa-check"></i> Dedicated account manager</li>
+            </ul>
+            <a href="contact.html" class="srv-detail-link">Request Bulk Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="srv-row reverse">
+        <div class="srv-visual">
+            <div class="srv-visual-number">02</div>
+            <div class="srv-visual-bg"><img src="images/fabrics/dyed-fabric.png" alt="Custom Dyeing"></div>
+            <i class="fas fa-fill-drip srv-visual-icon"></i>
+        </div>
+        <div class="srv-detail">
+            <p class="etro-story-label">Service 02</p>
+            <h3>Custom Dyeing</h3>
+            <p>Advanced color matching technology with computerized recipe management. We deliver precise shade consistency across batches with excellent wash and light fastness.</p>
+            <ul class="srv-features">
+                <li><i class="fas fa-check"></i> 200+ standard shades available</li>
+                <li><i class="fas fa-check"></i> Pantone & custom color matching</li>
+                <li><i class="fas fa-check"></i> Color fastness grade 4-5</li>
+                <li><i class="fas fa-check"></i> Lab dip within 48 hours</li>
+            </ul>
+            <a href="contact.html" class="srv-detail-link">Request Color Matching <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="srv-row">
+        <div class="srv-visual">
+            <div class="srv-visual-number">03</div>
+            <div class="srv-visual-bg"><img src="images/fabrics/printed-fabric.png" alt="Printing"></div>
+            <i class="fas fa-print srv-visual-icon"></i>
+        </div>
+        <div class="srv-detail">
+            <p class="etro-story-label">Service 03</p>
+            <h3>Fabric Printing</h3>
+            <p>Digital and rotary screen printing with vibrant, lasting colors. Unlimited design possibilities with fine detail reproduction for fashion, home textiles, and uniforms.</p>
+            <ul class="srv-features">
+                <li><i class="fas fa-check"></i> Digital printing â€” unlimited colors</li>
+                <li><i class="fas fa-check"></i> Rotary screen â€” high volume</li>
+                <li><i class="fas fa-check"></i> Custom design development</li>
+                <li><i class="fas fa-check"></i> Strike-off approval process</li>
+            </ul>
+            <a href="contact.html" class="srv-detail-link">Submit Your Design <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="srv-row reverse">
+        <div class="srv-visual">
+            <div class="srv-visual-number">04</div>
+            <div class="srv-visual-bg"><img src="images/fabrics/woven-fabric.png" alt="Processing"></div>
+            <i class="fas fa-cogs srv-visual-icon"></i>
+        </div>
+        <div class="srv-detail">
+            <p class="etro-story-label">Service 04</p>
+            <h3>Fabric Processing</h3>
+            <p>Complete post-production finishing â€” from thread rolling and brushing to calendering, mercerizing, and specialty treatments that elevate fabric quality.</p>
+            <ul class="srv-features">
+                <li><i class="fas fa-check"></i> Calendering & mercerizing</li>
+                <li><i class="fas fa-check"></i> Peach finish & enzyme wash</li>
+                <li><i class="fas fa-check"></i> Anti-shrink & anti-wrinkle treatments</li>
+                <li><i class="fas fa-check"></i> Thread rolling & packing</li>
+            </ul>
+            <a href="contact.html" class="srv-detail-link">Discuss Processing <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+</section>
+
+<!-- Process Timeline -->
+<section class="srv-process">
+    <div class="srv-process-glow"></div>
+    <div class="srv-process-inner">
+        <div style="text-align:center;margin-bottom:1rem">
+            <p class="etro-story-label" style="color:var(--accent-light)">How It Works</p>
+            <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#fff">Our Process</h2>
+        </div>
+        <div class="srv-timeline">
+            <div class="srv-step">
+                <div class="srv-step-dot"></div>
+                <div class="srv-step-num">01</div>
+                <h4>Enquiry</h4>
+                <p>Share your fabric requirements via WhatsApp, call or form</p>
+            </div>
+            <div class="srv-step">
+                <div class="srv-step-dot"></div>
+                <div class="srv-step-num">02</div>
+                <h4>Sampling</h4>
+                <p>We develop samples matching your exact specifications</p>
+            </div>
+            <div class="srv-step">
+                <div class="srv-step-dot"></div>
+                <div class="srv-step-num">03</div>
+                <h4>Approval</h4>
+                <p>Review samples, finalize colors, weave & pricing</p>
+            </div>
+            <div class="srv-step">
+                <div class="srv-step-dot"></div>
+                <div class="srv-step-num">04</div>
+                <h4>Production</h4>
+                <p>Bulk manufacturing with quality checks at every stage</p>
+            </div>
+            <div class="srv-step">
+                <div class="srv-step-dot"></div>
+                <div class="srv-step-num">05</div>
+                <h4>Delivery</h4>
+                <p>Pan-India dispatch with tracking & doorstep delivery</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Services Detail -->
-<section class="services-section" id="services">
-    <div class="service-background"></div>
-    <div class="container-xxl py-5 position-relative">
-        <div class="services-grid">
-            <div class="service-card"><div class="service-number">01</div><div class="service-icon"><i class="fas fa-scroll"></i></div><h3>Bulk Fabric Supply</h3><p>Competitive wholesale pricing on cotton shirting, suiting, woven & printed fabrics. Flexible payment terms with minimum orders from 500 meters. Consistent quality across batches guaranteed.</p></div>
-            <div class="service-card"><div class="service-number">02</div><div class="service-icon"><i class="fas fa-fill-drip"></i></div><h3>Custom Dyeing</h3><p>Precision reactive dyeing with Pantone/TPX color matching. Grade 4-5 wash and light fastness. Over 200 standard shades plus custom color development for your brand requirements.</p></div>
-            <div class="service-card"><div class="service-number">03</div><div class="service-icon"><i class="fas fa-print"></i></div><h3>Fabric Printing</h3><p>Digital printing for photo-quality unlimited-color designs. Rotary and screen printing for bulk orders. All techniques deliver vibrant, wash-resistant results on cotton and blended fabrics.</p></div>
-            <div class="service-card"><div class="service-number">04</div><div class="service-icon"><i class="fas fa-cogs"></i></div><h3>Fabric Processing</h3><p>Comprehensive post-production services: thread rolling, fabric brushing, calendering, mercerizing, peach finishing, enzyme washing, and anti-shrink treatments at our Lower Parel facility.</p></div>
-            <div class="service-card"><div class="service-number">05</div><div class="service-icon"><i class="fas fa-drafting-compass"></i></div><h3>Sample Development</h3><p>Rapid prototyping and sample creation within 5-7 working days. Lab-dip matching, strike-off approvals, and pilot production runs before committing to bulk manufacturing orders.</p></div>
-            <div class="service-card"><div class="service-number">06</div><div class="service-icon"><i class="fas fa-truck"></i></div><h3>Pan-India Delivery</h3><p>Reliable logistics network covering all major textile hubs — Surat, Delhi, Bangalore, Tirupur, Kolkata. 7-15 day delivery with real-time tracking. Export shipping also available.</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- Process -->
-<section class="about-section" style="background:var(--bg-light);">
-    <div class="container-xxl py-5">
-        <div class="text-center mb-5"><h2 class="section-title">How We Work</h2><p class="section-subtitle">Simple, transparent process from enquiry to delivery</p><div class="divider"></div></div>
-        <div class="row g-4 text-center">
-            <div class="col-md-3"><div style="padding:2rem;"><div style="width:70px;height:70px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.8rem;font-weight:800;font-family:'Montserrat',sans-serif;">1</div><h4 style="font-family:'Playfair Display',serif;">Enquiry</h4><p style="color:var(--text-light);font-size:0.9rem;">Share your fabric requirements — type, GSM, width, color, and quantity needed.</p></div></div>
-            <div class="col-md-3"><div style="padding:2rem;"><div style="width:70px;height:70px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.8rem;font-weight:800;font-family:'Montserrat',sans-serif;">2</div><h4 style="font-family:'Playfair Display',serif;">Sampling</h4><p style="color:var(--text-light);font-size:0.9rem;">We create samples with your exact specs. Lab-dips and strike-offs for approval.</p></div></div>
-            <div class="col-md-3"><div style="padding:2rem;"><div style="width:70px;height:70px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.8rem;font-weight:800;font-family:'Montserrat',sans-serif;">3</div><h4 style="font-family:'Playfair Display',serif;">Production</h4><p style="color:var(--text-light);font-size:0.9rem;">Bulk manufacturing with rigorous quality control at every stage of production.</p></div></div>
-            <div class="col-md-3"><div style="padding:2rem;"><div style="width:70px;height:70px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.8rem;font-weight:800;font-family:'Montserrat',sans-serif;">4</div><h4 style="font-family:'Playfair Display',serif;">Delivery</h4><p style="color:var(--text-light);font-size:0.9rem;">On-time delivery across India with tracking. Export shipping also available.</p></div></div>
-        </div>
+<!-- Guarantee -->
+<section class="srv-guarantee">
+    <p class="etro-story-label">Our Promise</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300">Why Choose Arama Tessile</h2>
+    <div class="srv-guarantee-grid">
+        <div class="srv-guarantee-item"><i class="fas fa-shield-alt"></i><h4>Quality Assured</h4><p>Rigorous testing at every production stage</p></div>
+        <div class="srv-guarantee-item"><i class="fas fa-clock"></i><h4>On-Time Delivery</h4><p>7-15 day lead time with real-time tracking</p></div>
+        <div class="srv-guarantee-item"><i class="fas fa-rupee-sign"></i><h4>Best Pricing</h4><p>Mumbai's most competitive wholesale rates</p></div>
+        <div class="srv-guarantee-item"><i class="fas fa-headset"></i><h4>Dedicated Support</h4><p>Personal account manager for every client</p></div>
     </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section"><div class="container-xxl py-5 text-center">
-    <h2 class="section-title mb-3" style="color:#fff;">Ready to Get Started?</h2>
-    <p class="section-subtitle mb-4" style="color:rgba(255,255,255,0.8);">Tell us your fabric requirements and we'll prepare a custom quote within 24 hours.</p>
-    <a href="contact.html" class="cta-btn px-5 py-3 rounded-lg font-bold shadow-lg" style="font-size:1.1rem;display:inline-block;"><i class="fas fa-paper-plane me-2"></i>Request Custom Quote</a>
-</div></section>
-
-<footer class="footer-section">
-    <div class="container-xxl py-5">
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai.</p></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
-        </div>
-        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
+<section class="etro-sample-cta">
+    <div class="etro-sample-inner">
+        <h3>Ready to Transform Your Production?</h3>
+        <p>Get a custom quote within 24 hours â€” fabric samples shipped within 48 hours.</p>
+        <a href="contact.html" class="etro-sample-btn">Request Consultation</a>
     </div>
-</footer>
+</section>
+
+<footer class="ft"><div class="ft-top"><div class="ft-top-inner"><div class="ft-brand"><a href="index.html" class="ft-logo">Arama Tessile</a><p>Premium cotton fabric manufacturer & wholesaler based in Mumbai. Trusted by 500+ garment manufacturers since 2013.</p><div class="ft-social"><a href="#" class="ft-social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="ft-social-icon"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/919999999999" class="ft-social-icon"><i class="fab fa-whatsapp"></i></a></div></div><div class="ft-col"><h5>Fabrics</h5><ul><li><a href="products.html">All Fabrics</a></li><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div><div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="ft-col"><h5>Contact</h5><ul><li><a href="mailto:info@aramatessile.com"><i class="fas fa-envelope" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>info@aramatessile.com</a></li><li><a href="https://wa.me/919999999999"><i class="fab fa-whatsapp" style="width:16px;margin-right:.5rem;color:#25D366"></i>WhatsApp Us</a></li></ul></div></div></div><div class="ft-bottom"><div class="ft-bottom-inner"><span>&copy; 2024 Arama Tessile LLP. All rights reserved.</span><span>GSTIN: 27AAYFA8415D1Z7</span></div></div></footer>
+
 <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+/* === SERVICES PAGE PREMIUM ANIMATIONS === */
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero content reveal
+    const tl = gsap.timeline({ delay: 0.3 });
+    tl.from('.srv-hero-glow', { scale: 0, opacity: 0, duration: 1.5, ease: 'power2.out' }, 0)
+      .from('.srv-hero-content .etro-story-label', { y: 20, opacity: 0, duration: 0.6 }, 0.3)
+      .from('.srv-hero-content h1', { y: 50, opacity: 0, duration: 0.8, ease: 'power3.out' }, 0.5)
+      .from('.srv-hero-content p', { y: 20, opacity: 0, duration: 0.6 }, 0.8)
+      .from('.srv-hero-line', { scaleY: 0, opacity: 0, duration: 0.6 }, 1);
+
+    // Glow follows scroll
+    gsap.to('.srv-hero-glow', {
+        y: -100, scale: 1.3,
+        scrollTrigger: { trigger: '.srv-hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+
+    // Service rows â€” slide in from sides
+    document.querySelectorAll('.srv-row').forEach(row => {
+        const visual = row.querySelector('.srv-visual');
+        const detail = row.querySelector('.srv-detail');
+        const isReverse = row.classList.contains('reverse');
+        
+        gsap.from(visual, {
+            x: isReverse ? 80 : -80, opacity: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: row, start: 'top 80%', once: true }
+        });
+        gsap.from(detail, {
+            x: isReverse ? -80 : 80, opacity: 0, duration: 1, delay: 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: row, start: 'top 80%', once: true }
+        });
+
+        // Stagger features
+        const features = detail.querySelectorAll('.srv-features li');
+        gsap.from(features, {
+            x: 30, opacity: 0, stagger: 0.08, duration: 0.5,
+            scrollTrigger: { trigger: detail, start: 'top 75%', once: true }
+        });
+
+        // Parallax on visual number
+        const num = visual.querySelector('.srv-visual-number');
+        if (num) {
+            gsap.to(num, {
+                y: -50,
+                scrollTrigger: { trigger: row, start: 'top bottom', end: 'bottom top', scrub: 0.5 }
+            });
+        }
+    });
+
+    // Process steps
+    document.querySelectorAll('.srv-step').forEach((step, i) => {
+        gsap.from(step, {
+            y: 40, opacity: 0, duration: 0.6, delay: i * 0.12,
+            scrollTrigger: { trigger: '.srv-timeline', start: 'top 85%', once: true }
+        });
+    });
+    gsap.from('.srv-timeline::before', {
+        scaleX: 0, duration: 1.5,
+        scrollTrigger: { trigger: '.srv-timeline', start: 'top 85%', once: true }
+    });
+
+    // Guarantee items â€” scale up
+    document.querySelectorAll('.srv-guarantee-item').forEach((item, i) => {
+        gsap.from(item, {
+            scale: 0.85, opacity: 0, duration: 0.6, delay: i * 0.1,
+            scrollTrigger: { trigger: item, start: 'top 90%', once: true }
+        });
+    });
+});
+</script>
 </body>
 </html>

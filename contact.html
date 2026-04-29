@@ -1,104 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — Arama Tessile LLP | Get Wholesale Quote</title>
-    <meta name="description" content="Contact Arama Tessile LLP for wholesale fabric quotes. Office: Kalbadevi Road, Mumbai. Factory: Lower Parel, Mumbai.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact â€” Arama Tessile LLP | Request Samples & Bulk Quotes</title>
+    <meta name="description" content="Contact Arama Tessile for premium fabric samples, bulk quotes, and custom orders. Mumbai offices.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+    /* === CONTACT PAGE â€” IMMERSIVE DARK SPLIT === */
+    .ct-split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+
+    /* Left â€” Dark Info Panel */
+    .ct-left{background:var(--black);color:#fff;padding:8rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+    .ct-left-pattern{position:absolute;inset:0;opacity:.03;background-image:radial-gradient(rgba(196,180,152,.8) 1px,transparent 1px);background-size:24px 24px}
+    .ct-left-glow{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(139,115,85,.12) 0%,transparent 70%);bottom:-150px;right:-150px;z-index:1}
+    .ct-left-content{position:relative;z-index:2;max-width:450px}
+    .ct-left-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;margin-bottom:.5rem;line-height:1.15}
+    .ct-left-content>p{font-size:.9rem;color:rgba(255,255,255,.4);margin-bottom:3rem;line-height:1.7}
+
+    .ct-info-block{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.06)}
+    .ct-info-block:last-of-type{border-bottom:none}
+    .ct-info-row{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.2rem}
+    .ct-info-icon{width:40px;min-width:40px;height:40px;border:1px solid rgba(139,115,85,.3);display:flex;align-items:center;justify-content:center;color:var(--accent-light);font-size:.9rem;transition:all .4s}
+    .ct-info-row:hover .ct-info-icon{background:var(--accent);border-color:var(--accent);color:#fff}
+    .ct-info-text h5{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.3rem;font-family:'Inter',sans-serif;font-weight:500}
+    .ct-info-text p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;margin:0}
+    .ct-info-text a{color:var(--accent-light);text-decoration:none;transition:color .3s}
+    .ct-info-text a:hover{color:#fff}
+
+    .ct-social{display:flex;gap:.6rem;margin-top:1.5rem}
+    .ct-social-link{width:40px;height:40px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;transition:all .3s;font-size:.9rem}
+    .ct-social-link:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+
+    /* Right â€” Form Panel */
+    .ct-right{background:var(--bg);padding:8rem 4rem 4rem;display:flex;align-items:center;justify-content:center}
+    .ct-form-wrap{width:100%;max-width:480px}
+    .ct-form-wrap h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:.5rem}
+    .ct-form-wrap>p{font-size:.85rem;color:var(--text-light);margin-bottom:2.5rem}
+
+    .ct-field{position:relative;margin-bottom:1.5rem}
+    .ct-field input,.ct-field textarea{width:100%;padding:1rem 0 .8rem;border:none;border-bottom:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.9rem;color:var(--black);outline:none;transition:border-color .3s}
+    .ct-field textarea{resize:none;height:80px}
+    .ct-field label{position:absolute;top:1rem;left:0;font-size:.85rem;color:var(--text-light);pointer-events:none;transition:all .3s}
+    .ct-field input:focus~label,.ct-field input:not(:placeholder-shown)~label,
+    .ct-field textarea:focus~label,.ct-field textarea:not(:placeholder-shown)~label{top:-.6rem;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    .ct-field input:focus,.ct-field textarea:focus{border-bottom-color:var(--accent)}
+    .ct-field-line{position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width .4s}
+    .ct-field input:focus~.ct-field-line,.ct-field textarea:focus~.ct-field-line{width:100%}
+
+    .ct-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+
+    .ct-submit{width:100%;padding:1.1rem;background:var(--black);color:#fff;border:1px solid var(--black);font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .4s;margin-top:.5rem;position:relative;overflow:hidden}
+    .ct-submit::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:left .6s}
+    .ct-submit:hover::before{left:100%}
+    .ct-submit:hover{background:var(--accent);border-color:var(--accent)}
+    .ct-submit.success{background:#25D366;border-color:#25D366}
+
+    .ct-or{text-align:center;margin:2rem 0;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);position:relative}
+    .ct-or::before,.ct-or::after{content:'';position:absolute;top:50%;width:calc(50% - 2rem);height:1px;background:var(--border)}
+    .ct-or::before{left:0}
+    .ct-or::after{right:0}
+    .ct-wa-btn{display:flex;align-items:center;justify-content:center;gap:.8rem;width:100%;padding:1rem;background:#25D366;color:#fff;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;transition:all .3s;font-family:'Inter',sans-serif}
+    .ct-wa-btn:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,.25)}
+
+    @media(max-width:992px){
+        .ct-split{grid-template-columns:1fr}
+        .ct-left{padding:8rem 2rem 3rem}
+        .ct-right{padding:3rem 2rem 4rem}
+    }
+    @media(max-width:576px){
+        .ct-left{padding:7rem 1.5rem 2.5rem}
+        .ct-right{padding:2.5rem 1.5rem 3rem}
+        .ct-row{grid-template-columns:1fr}
+    }
+    </style>
 </head>
 <body>
-<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-underline font-semibold">Home</a><a href="about.html" class="nav-underline font-semibold">About</a><a href="products.html" class="nav-underline font-semibold">Products</a>
-            <a href="services.html" class="nav-underline font-semibold">Services</a><a href="clients.html" class="nav-underline font-semibold">Clients</a>
-            <a href="contact.html" class="nav-underline font-semibold active" aria-current="page">Contact</a>
-            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+
+<header class="etro-header" id="site-header">
+    <nav class="etro-nav">
+        <div class="etro-nav-left"><a href="index.html" class="etro-logo"><span class="logo-word" data-text="ARAMA">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light" data-text="TESSILE">TESSILE</span></a></div>
+        <div class="etro-nav-center">
+            <a href="products.html" class="etro-nav-link">All Fabrics<span class="etro-nav-count">50+</span></a>
+            <a href="services.html" class="etro-nav-link">Services</a>
+            <a href="clients.html" class="etro-nav-link">Clients</a>
+            <a href="contact.html" class="etro-nav-link" style="font-weight:500;color:var(--black)">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="etro-nav-right">
+            <a href="about.html" class="etro-nav-icon"><i class="fas fa-info-circle"></i></a>
+            <a href="contact.html" class="etro-nav-icon" style="color:var(--black)"><i class="fas fa-swatchbook"></i></a>
+        </div>
+        <button class="etro-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
     </nav>
-    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
-        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a><a href="about.html" class="nav-underline font-semibold text-lg">About</a><a href="products.html" class="nav-underline font-semibold text-lg">Products</a><a href="services.html" class="nav-underline font-semibold text-lg">Services</a><a href="clients.html" class="nav-underline font-semibold text-lg">Clients</a><a href="contact.html" class="nav-underline font-semibold text-lg active">Contact</a>
-    </div>
 </header>
 
-<!-- Contact Hero -->
-<section class="hero-section" style="min-height:50vh;">
-    <div class="hero-gradient"></div>
-    <div class="container-xxl h-100 d-flex align-items-center" style="position:relative;z-index:5;">
-        <div class="col-lg-8 mx-auto text-center hero-content">
-            <h1 class="hero-title">Get in <span class="accent-text">Touch</span></h1>
-            <p class="hero-subtitle mx-auto" style="max-width:600px;text-align:center;">Ready to order premium fabrics? Contact our B2B team for wholesale quotes, bulk orders, and custom fabric development.</p>
-        </div>
-    </div>
-</section>
+<div id="mobile-menu" class="etro-mobile-menu closed">
+    <div class="etro-mobile-header"><span class="etro-logo"><span class="logo-word">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light">TESSILE</span></span><button id="mobile-menu-close"><i class="fas fa-times"></i></button></div>
+    <div class="etro-mobile-links"><a href="index.html">Home</a><a href="products.html">All Fabrics</a><a href="about.html">About</a><a href="services.html">Services</a><a href="clients.html">Clients</a><a href="contact.html" class="active">Contact</a></div>
+</div>
 
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-    <div class="contact-background"></div>
-    <div class="container-xxl" style="position:relative;z-index:5;">
-        <div class="row gy-5 align-items-start">
-            <div class="col-lg-6 text-white contact-info-col">
-                <h2 class="section-title mb-4 text-white">Contact Information</h2>
-                <div class="contact-info-list">
-                    <div class="contact-info-item"><i class="fas fa-building"></i><div><h5>Registered Office</h5><p>102, Abhay House, 428 Kalbadevi Road,<br>Mumbai, Maharashtra 400002</p></div></div>
-                    <div class="contact-info-item"><i class="fas fa-industry"></i><div><h5>Factory / Processing Unit</h5><p>4th Floor, 437/B Kewal Industrial Estate,<br>Senapati Bapat Marg, Lower Parel,<br>Mumbai 400013</p></div></div>
-                    <div class="contact-info-item"><i class="fas fa-envelope"></i><div><h5>Email</h5><p>info@aramatessile.com</p></div></div>
-                    <div class="contact-info-item"><i class="fas fa-clock"></i><div><h5>Business Hours</h5><p>Monday – Saturday: 10:00 AM – 7:00 PM<br>Sunday: Closed</p></div></div>
-                    <div class="contact-info-item"><i class="fas fa-file-alt"></i><div><h5>Company Details</h5><p>LLPIN: AAB-8912<br>GSTIN: 27AAYFA8415D1Z7<br>Incorporated: 27 Nov 2013</p></div></div>
+<!-- Immersive Split Layout -->
+<section class="ct-split">
+
+    <!-- Left: Dark Info -->
+    <div class="ct-left">
+        <div class="ct-left-pattern"></div>
+        <div class="ct-left-glow"></div>
+        <div class="ct-left-content">
+            <p class="etro-story-label" style="color:var(--accent-light)">Get in Touch</p>
+            <h1>Let's Create<br>Something Beautiful</h1>
+            <p>Premium fabrics, competitive pricing, and dedicated support â€” reach out to start your partnership with Arama Tessile.</p>
+
+            <div class="ct-info-block">
+                <div class="ct-info-row">
+                    <div class="ct-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="ct-info-text"><h5>Registered Office</h5><p>102, Abhay House, 428 Kalbadevi Road,<br>Mumbai 400002</p></div>
+                </div>
+                <div class="ct-info-row">
+                    <div class="ct-info-icon"><i class="fas fa-industry"></i></div>
+                    <div class="ct-info-text"><h5>Factory & Warehouse</h5><p>4th Floor, 437/B Kewal Industrial Estate,<br>Senapati Bapat Marg, Lower Parel, Mumbai 400013</p></div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <form class="contact-form" id="contactForm">
-                    <h3 style="color:#fff;margin-bottom:1.5rem;font-family:'Playfair Display',serif;">Request a Wholesale Quote</h3>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Full Name *" required></div>
-                    <div class="form-group"><input type="email" class="form-control" placeholder="Email Address *" required></div>
-                    <div class="form-group"><input type="tel" class="form-control" placeholder="Phone Number *" required></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Company Name *" required></div>
-                    <div class="form-group"><select class="form-control" required style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:0.75rem 1rem;border-radius:12px;">
-                        <option value="" style="color:#333;">Select Fabric Type</option>
-                        <option value="cotton-shirting" style="color:#333;">Cotton Shirting</option>
-                        <option value="cotton-suiting" style="color:#333;">Cotton Suiting</option>
-                        <option value="woven" style="color:#333;">Woven Fabric</option>
-                        <option value="printed" style="color:#333;">Printed Fabric</option>
-                        <option value="dyed" style="color:#333;">Dyed Fabric</option>
-                        <option value="custom" style="color:#333;">Custom Order</option>
-                    </select></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Quantity Required (meters)"></div>
-                    <div class="form-group"><textarea class="form-control" placeholder="Additional Requirements (GSM, width, color, finish...)" rows="4"></textarea></div>
-                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Submit Enquiry</button>
-                </form>
+
+            <div class="ct-info-block">
+                <div class="ct-info-row">
+                    <div class="ct-info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="ct-info-text"><h5>Email</h5><p><a href="mailto:info@aramatessile.com">info@aramatessile.com</a></p></div>
+                </div>
+                <div class="ct-info-row">
+                    <div class="ct-info-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="ct-info-text"><h5>WhatsApp</h5><p><a href="https://wa.me/919999999999">Chat with us instantly â†’</a></p></div>
+                </div>
+            </div>
+
+            <div class="ct-social">
+                <a href="#" class="ct-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="ct-social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="ct-social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/919999999999" class="ct-social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Map -->
-<section style="padding:0;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.8098!2d72.8258!3d18.9568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce1e9c8f3f7d%3A0x8a0c1a7b5c8f3f7d!2sKalbadevi%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</section>
+    <!-- Right: Premium Form -->
+    <div class="ct-right">
+        <div class="ct-form-wrap">
+            <h2>Request a Quote</h2>
+            <p>Fill in your requirements and we'll respond within 24 hours with samples and pricing.</p>
 
-<footer class="footer-section">
-    <div class="container-xxl py-5">
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai.</p></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
+            <form id="contactForm">
+                <div class="ct-row">
+                    <div class="ct-field">
+                        <input type="text" id="ct-name" placeholder=" " required>
+                        <label for="ct-name">Full Name</label>
+                        <div class="ct-field-line"></div>
+                    </div>
+                    <div class="ct-field">
+                        <input type="email" id="ct-email" placeholder=" " required>
+                        <label for="ct-email">Email Address</label>
+                        <div class="ct-field-line"></div>
+                    </div>
+                </div>
+                <div class="ct-row">
+                    <div class="ct-field">
+                        <input type="text" id="ct-company" placeholder=" " required>
+                        <label for="ct-company">Company Name</label>
+                        <div class="ct-field-line"></div>
+                    </div>
+                    <div class="ct-field">
+                        <input type="tel" id="ct-phone" placeholder=" ">
+                        <label for="ct-phone">Phone Number</label>
+                        <div class="ct-field-line"></div>
+                    </div>
+                </div>
+                <div class="ct-field">
+                    <input type="text" id="ct-fabric" placeholder=" ">
+                    <label for="ct-fabric">Fabric Type Required</label>
+                    <div class="ct-field-line"></div>
+                </div>
+                <div class="ct-field">
+                    <input type="text" id="ct-qty" placeholder=" ">
+                    <label for="ct-qty">Quantity (meters)</label>
+                    <div class="ct-field-line"></div>
+                </div>
+                <div class="ct-field">
+                    <textarea id="ct-msg" placeholder=" "></textarea>
+                    <label for="ct-msg">Additional Requirements</label>
+                    <div class="ct-field-line"></div>
+                </div>
+                <button type="submit" class="ct-submit" id="ct-submit-btn">Request Sample Collection</button>
+            </form>
+
+            <div class="ct-or">or</div>
+
+            <a href="https://wa.me/919999999999?text=Hi%20Arama%20Tessile%2C%20I%20need%20fabric%20samples" class="ct-wa-btn" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size:1.1rem"></i> Chat on WhatsApp
+            </a>
         </div>
-        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
     </div>
-</footer>
+
+</section>
+
+<footer class="ft"><div class="ft-top"><div class="ft-top-inner"><div class="ft-brand"><a href="index.html" class="ft-logo">Arama Tessile</a><p>Premium cotton fabric manufacturer & wholesaler based in Mumbai. Trusted by 500+ garment manufacturers since 2013.</p><div class="ft-social"><a href="#" class="ft-social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="ft-social-icon"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/919999999999" class="ft-social-icon"><i class="fab fa-whatsapp"></i></a></div></div><div class="ft-col"><h5>Fabrics</h5><ul><li><a href="products.html">All Fabrics</a></li><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Printed Fabrics</a></li></ul></div><div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="ft-col"><h5>Contact</h5><ul><li><a href="mailto:info@aramatessile.com"><i class="fas fa-envelope" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>info@aramatessile.com</a></li><li><a href="https://wa.me/919999999999"><i class="fab fa-whatsapp" style="width:16px;margin-right:.5rem;color:#25D366"></i>WhatsApp Us</a></li></ul></div></div></div><div class="ft-bottom"><div class="ft-bottom-inner"><span>&copy; 2024 Arama Tessile LLP. All rights reserved.</span><span>GSTIN: 27AAYFA8415D1Z7</span></div></div></footer>
+
 <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+/* === CONTACT PAGE ANIMATIONS === */
+document.addEventListener('DOMContentLoaded', () => {
+    // Left panel reveals
+    const tl = gsap.timeline({ delay: 0.3 });
+    tl.from('.ct-left-glow', { scale: 0, duration: 1.5, ease: 'power2.out' }, 0)
+      .from('.ct-left-content .etro-story-label', { x: -30, opacity: 0, duration: 0.6 }, 0.2)
+      .from('.ct-left-content h1', { x: -50, opacity: 0, duration: 0.8, ease: 'power3.out' }, 0.4)
+      .from('.ct-left-content > p', { x: -30, opacity: 0, duration: 0.6 }, 0.6);
+
+    // Info rows stagger
+    gsap.from('.ct-info-row', { x: -40, opacity: 0, stagger: 0.1, duration: 0.6, delay: 0.8 });
+    gsap.from('.ct-social-link', { y: 20, opacity: 0, stagger: 0.08, duration: 0.5, delay: 1.2 });
+
+    // Right panel form
+    gsap.from('.ct-form-wrap h2', { y: 30, opacity: 0, duration: 0.6, delay: 0.5 });
+    gsap.from('.ct-form-wrap > p', { y: 20, opacity: 0, duration: 0.5, delay: 0.7 });
+    gsap.from('.ct-field', { y: 20, opacity: 0, stagger: 0.08, duration: 0.5, delay: 0.9 });
+    gsap.from('.ct-submit', { y: 20, opacity: 0, duration: 0.5, delay: 1.3 });
+    gsap.from('.ct-or', { opacity: 0, duration: 0.4, delay: 1.5 });
+    gsap.from('.ct-wa-btn', { y: 20, opacity: 0, duration: 0.5, delay: 1.6 });
+
+    // Form submission
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('ct-submit-btn');
+        btn.classList.add('success');
+        btn.textContent = 'âœ“ Enquiry Sent Successfully!';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.classList.remove('success');
+            btn.textContent = 'Request Sample Collection';
+            btn.disabled = false;
+            e.target.reset();
+        }, 3000);
+    });
+});
+</script>
 </body>
 </html>

@@ -3,165 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — Arama Tessile LLP | Mumbai Textile Manufacturer</title>
-    <meta name="description" content="Learn about Arama Tessile LLP — Mumbai-based fabric manufacturer since 2013. Founded by Rahul & Anjlee Agarwal. Premium cotton fabric production & wholesale.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <title>About Us â€” Arama Tessile LLP | Mumbai Textile Manufacturer</title>
+    <meta name="description" content="Learn about Arama Tessile LLP â€” Mumbai-based fabric manufacturer since 2013. Founded by Rahul & Anjlee Agarwal.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- Header -->
-<header id="site-header" class="sticky top-0 z-50 bg-white/90 shadow transition-all">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-        <div class="flex items-center gap-3"><a href="index.html" style="text-decoration:none"><span class="text-2xl font-extrabold gradient-text" style="font-family:'Playfair Display',serif;">Arama Tessile</span></a></div>
-        <div class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-underline font-semibold">Home</a>
-            <a href="about.html" class="nav-underline font-semibold active" aria-current="page">About</a>
-            <a href="products.html" class="nav-underline font-semibold">Products</a>
-            <a href="services.html" class="nav-underline font-semibold">Services</a>
-            <a href="clients.html" class="nav-underline font-semibold">Clients</a>
-            <a href="contact.html" class="nav-underline font-semibold">Contact</a>
-            <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold ml-2 shadow-lg">Get Bulk Quote</a>
+<div class="etro-topbar"><div class="etro-topbar-inner"><span>Premium Fabric Manufacturing & Wholesale â€” Since 2013</span></div></div>
+
+<header class="etro-header" id="site-header">
+    <nav class="etro-nav">
+        <div class="etro-nav-left"><a href="index.html" class="etro-logo"><span class="logo-word" data-text="ARAMA">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light" data-text="TESSILE">TESSILE</span></a></div>
+        <div class="etro-nav-center">
+            <a href="products.html" class="etro-nav-link">All Fabrics<span class="etro-nav-count">50+</span></a>
+            <a href="services.html" class="etro-nav-link">Services</a>
+            <a href="clients.html" class="etro-nav-link">Clients</a>
+            <a href="contact.html" class="etro-nav-link">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border" aria-label="Open menu"><svg width="28" height="28" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="etro-nav-right">
+            <a href="about.html" class="etro-nav-icon" title="About" style="color:var(--black)"><i class="fas fa-info-circle"></i></a>
+            <a href="contact.html" class="etro-nav-icon" title="Samples"><i class="fas fa-swatchbook"></i></a>
+        </div>
+        <button class="etro-menu-btn" id="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
-    <div id="mobile-menu" class="mobile-menu closed fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-lg z-50 flex flex-col p-8 gap-6 md:hidden">
-        <button id="mobile-menu-close" class="self-end mb-4" aria-label="Close menu"><svg width="32" height="32" fill="none" stroke="#1B365D" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-        <a href="index.html" class="nav-underline font-semibold text-lg">Home</a>
-        <a href="about.html" class="nav-underline font-semibold text-lg active">About</a>
-        <a href="products.html" class="nav-underline font-semibold text-lg">Products</a>
-        <a href="services.html" class="nav-underline font-semibold text-lg">Services</a>
-        <a href="clients.html" class="nav-underline font-semibold text-lg">Clients</a>
-        <a href="contact.html" class="nav-underline font-semibold text-lg">Contact</a>
-        <a href="contact.html" class="cta-btn px-5 py-2 rounded-lg font-bold mt-4 text-center">Get Bulk Quote</a>
-    </div>
 </header>
 
-<!-- About Hero -->
-<section class="hero-section" id="about-hero" style="min-height:60vh;">
-    <div class="hero-gradient"></div>
-    <div class="container-xxl h-100 d-flex align-items-center" style="position:relative;z-index:5;">
-        <div class="row w-100 align-items-center">
-            <div class="col-lg-8 mx-auto text-center hero-content">
-                <h1 class="hero-title">About <span class="accent-text">Arama Tessile</span></h1>
-                <p class="hero-subtitle mx-auto" style="max-width:600px;text-align:center;">Mumbai's trusted textile manufacturer since 2013. Delivering premium quality printed & woven cotton fabrics to garment makers across India.</p>
-            </div>
-        </div>
-    </div>
+<div id="mobile-menu" class="etro-mobile-menu closed">
+    <div class="etro-mobile-header"><span class="etro-logo"><span class="logo-word">ARAMA</span><span class="logo-sep">✦</span><span class="logo-word logo-light">TESSILE</span></span><button id="mobile-menu-close" aria-label="Close"><i class="fas fa-times"></i></button></div>
+    <div class="etro-mobile-links"><a href="index.html">Home</a><a href="products.html">All Fabrics</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+</div>
+
+<section class="etro-page-header">
+    <h1>About Arama Tessile</h1>
+    <p>Mumbai's trusted textile manufacturer since 2013</p>
 </section>
 
-<!-- Company Story -->
-<section class="about-section" id="company-story">
-    <div class="container-xxl py-5">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <div class="about-image-container">
-                    <div class="about-image-main"><img src="images/hero/hero-fabric.png" alt="Arama Tessile Journey" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
-                    <div class="about-image-secondary"><span>Est.<br>2013</span></div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <h2 class="section-title mb-4">Our Journey</h2>
-                <p class="section-subtitle mb-4">From a vision to India's trusted textile partner</p>
-                <p style="color:var(--text-light);line-height:1.8;font-family:'Inter',sans-serif;">Founded on 27th November 2013, Arama Tessile LLP began with a clear mission — to provide the highest quality cotton fabrics to India's garment manufacturing industry. Starting from our registered office at Kalbadevi Road in Mumbai's historic textile district, we grew steadily through an unwavering commitment to quality and customer satisfaction.</p>
-                <p style="color:var(--text-light);line-height:1.8;margin-top:1rem;font-family:'Inter',sans-serif;">Today, with our state-of-the-art processing facility at Kewal Industrial Estate in Lower Parel and an annual turnover of ₹25-100 Crore, we serve hundreds of garment manufacturers across India and have established a growing export presence worth $0.55M annually. Our journey from a small LLP to a major textile supplier reflects the trust our clients place in us.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Mission Vision Values -->
-<section class="about-section" style="background:var(--bg-light);" id="mission">
-    <div class="container-xxl py-5">
-        <div class="text-center mb-5"><h2 class="section-title">Mission, Vision & Values</h2><p class="section-subtitle">What drives Arama Tessile every day</p><div class="divider"></div></div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-4"><div class="feature-item flex-column align-items-center text-center" style="background:var(--white);padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);"><div class="feature-icon mb-3"><i class="fas fa-bullseye"></i></div><h4>Our Mission</h4><p style="color:var(--text-light);">To empower garment manufacturers with premium quality, competitively priced cotton fabrics delivered with reliability and integrity.</p></div></div>
-            <div class="col-md-4"><div class="feature-item flex-column align-items-center text-center" style="background:var(--white);padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);"><div class="feature-icon mb-3"><i class="fas fa-eye"></i></div><h4>Our Vision</h4><p style="color:var(--text-light);">To become India's most trusted B2B textile supplier, setting new benchmarks in fabric quality, innovation, and customer service.</p></div></div>
-            <div class="col-md-4"><div class="feature-item flex-column align-items-center text-center" style="background:var(--white);padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);"><div class="feature-icon mb-3"><i class="fas fa-hand-holding-heart"></i></div><h4>Our Values</h4><p style="color:var(--text-light);">Quality first, customer focus, transparency in business, innovation in textiles, and sustainable practices guide every decision.</p></div></div>
+<!-- Our Journey -->
+<section class="etro-about-section">
+    <div class="etro-about-grid">
+        <div class="etro-about-img"><img src="images/hero/hero-fabric.png" alt="Arama Tessile Journey"></div>
+        <div class="etro-about-text">
+            <p class="etro-story-label">Our Story</p>
+            <h2>The Journey</h2>
+            <p>Founded on 27th November 2013, Arama Tessile LLP began with a clear mission â€” to provide the highest quality cotton fabrics to India's garment manufacturing industry. Starting from our registered office at Kalbadevi Road in Mumbai's historic textile district, we grew steadily through an unwavering commitment to quality.</p>
+            <p>Today, with our state-of-the-art processing facility at Kewal Industrial Estate in Lower Parel and an annual turnover of â‚¹25-100 Crore, we serve hundreds of garment manufacturers across India with a growing export presence worth $0.55M annually.</p>
         </div>
     </div>
 </section>
 
 <!-- Manufacturing -->
-<section class="about-section" id="manufacturing">
-    <div class="container-xxl py-5">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6 order-lg-2">
-                <div class="about-image-container"><div class="about-image-main"><img src="images/fabrics/custom-fabric.png" alt="Manufacturing Excellence" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div></div>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                <h2 class="section-title mb-4">Manufacturing Excellence</h2>
-                <p class="section-subtitle mb-4">Advanced facilities & skilled craftsmanship</p>
-                <ul class="list-unstyled mb-0" style="font-family:'Inter',sans-serif;">
-                    <li class="mb-3"><i class="fas fa-industry me-2" style="color:var(--accent);"></i> State-of-the-art processing facility at Lower Parel, Mumbai</li>
-                    <li class="mb-3"><i class="fas fa-users-cog me-2" style="color:var(--accent);"></i> Experienced textile professionals & skilled craftsmen</li>
-                    <li class="mb-3"><i class="fas fa-cogs me-2" style="color:var(--accent);"></i> Advanced fabric processing — rolling, brushing, finishing</li>
-                    <li class="mb-3"><i class="fas fa-check-double me-2" style="color:var(--accent);"></i> Rigorous quality control at every production stage</li>
-                    <li class="mb-3"><i class="fas fa-palette me-2" style="color:var(--accent);"></i> Custom dyeing & printing with precise color matching</li>
-                    <li class="mb-3"><i class="fas fa-globe me-2" style="color:var(--accent);"></i> Pan-India delivery with growing export capabilities</li>
+<section class="etro-about-section" style="background:var(--bg);padding:5rem 2rem;max-width:100%">
+    <div style="max-width:1100px;margin:0 auto">
+        <div class="etro-about-grid">
+            <div class="etro-about-text">
+                <p class="etro-story-label">Excellence</p>
+                <h2>Manufacturing</h2>
+                <ul class="etro-about-features">
+                    <li><i class="fas fa-industry"></i> State-of-the-art facility at Lower Parel, Mumbai</li>
+                    <li><i class="fas fa-users-cog"></i> Experienced textile professionals & craftsmen</li>
+                    <li><i class="fas fa-cogs"></i> Advanced processing â€” rolling, brushing, finishing</li>
+                    <li><i class="fas fa-check-double"></i> Rigorous quality control at every stage</li>
+                    <li><i class="fas fa-palette"></i> Custom dyeing & printing with color matching</li>
+                    <li><i class="fas fa-globe"></i> Pan-India delivery with export capabilities</li>
                 </ul>
             </div>
+            <div class="etro-about-img"><img src="images/fabrics/custom-fabric.png" alt="Manufacturing"></div>
         </div>
+    </div>
+</section>
+
+<!-- Mission Vision Values -->
+<section style="padding:5rem 2rem;text-align:center;background:var(--white)">
+    <p class="etro-story-label">Philosophy</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:2.5rem">Mission, Vision & Values</h2>
+    <div class="etro-mvv-grid">
+        <div class="etro-mvv-card"><i class="fas fa-bullseye"></i><h4>Our Mission</h4><p>To empower garment manufacturers with premium quality, competitively priced cotton fabrics delivered with reliability and integrity.</p></div>
+        <div class="etro-mvv-card"><i class="fas fa-eye"></i><h4>Our Vision</h4><p>To become India's most trusted B2B textile supplier, setting new benchmarks in fabric quality, innovation, and customer service.</p></div>
+        <div class="etro-mvv-card"><i class="fas fa-hand-holding-heart"></i><h4>Our Values</h4><p>Quality first, customer focus, transparency in business, innovation in textiles, and sustainable practices guide every decision.</p></div>
     </div>
 </section>
 
 <!-- Leadership -->
-<section class="about-section" style="background:var(--bg-light);" id="leadership">
-    <div class="container-xxl py-5">
-        <div class="text-center mb-5"><h2 class="section-title">Our Leadership</h2><p class="section-subtitle">Experienced partners driving textile excellence</p><div class="divider"></div></div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-5"><div style="background:var(--white);padding:2.5rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);text-align:center;">
-                <div style="width:100px;height:100px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;"><i class="fas fa-user-tie" style="font-size:2.5rem;color:var(--accent);"></i></div>
-                <h4 style="margin-bottom:0.5rem;">Rahul Amritlal Agarwal</h4><p style="color:var(--accent);font-weight:600;margin-bottom:1rem;">Designated Partner</p><p style="color:var(--text-light);font-family:'Inter',sans-serif;">Co-founder and designated partner since 2013. Brings deep expertise in textile manufacturing and B2B trade relationships across India's garment industry.</p>
-            </div></div>
-            <div class="col-md-5"><div style="background:var(--white);padding:2.5rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.06);text-align:center;">
-                <div style="width:100px;height:100px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;"><i class="fas fa-user-tie" style="font-size:2.5rem;color:var(--accent);"></i></div>
-                <h4 style="margin-bottom:0.5rem;">Anjlee Agarwal</h4><p style="color:var(--accent);font-weight:600;margin-bottom:1rem;">Designated Partner</p><p style="color:var(--text-light);font-family:'Inter',sans-serif;">Co-founder and designated partner since 2013. Oversees operations, quality control, and strategic business development for the company's growth.</p>
-            </div></div>
+<section style="padding:5rem 2rem;text-align:center;background:var(--bg)">
+    <p class="etro-story-label">Leadership</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:2.5rem">Our Partners</h2>
+    <div class="etro-leaders">
+        <div class="etro-leader-card">
+            <div class="etro-leader-avatar"><i class="fas fa-user-tie"></i></div>
+            <h4>Rahul Amritlal Agarwal</h4>
+            <span class="role">Designated Partner</span>
+            <p>Co-founder since 2013. Deep expertise in textile manufacturing and B2B trade relationships across India's garment industry.</p>
+        </div>
+        <div class="etro-leader-card">
+            <div class="etro-leader-avatar"><i class="fas fa-user-tie"></i></div>
+            <h4>Anjlee Agarwal</h4>
+            <span class="role">Designated Partner</span>
+            <p>Co-founder since 2013. Oversees operations, quality control, and strategic business development for the company's growth.</p>
         </div>
     </div>
 </section>
 
-<!-- Company Details -->
-<section class="stats-section">
-    <div class="container-xxl">
-        <div class="row text-center g-4">
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="2013">0</div><div class="stat-label">Year Founded</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="100">0</div><div class="stat-label">Cr+ Turnover</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="2">0</div><div class="stat-label">Mumbai Locations</div></div></div>
-            <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-number" data-target="500">0</div><div class="stat-label">Happy Clients</div></div></div>
-        </div>
+<!-- Stats -->
+<section class="etro-stats">
+    <div class="etro-stats-inner">
+        <div class="etro-stat"><span class="etro-stat-num" data-target="2013">0</span><span class="etro-stat-label">Year Founded</span></div>
+        <div class="etro-stat"><span class="etro-stat-num" data-target="100">0</span><span class="etro-stat-label">Cr+ Turnover</span></div>
+        <div class="etro-stat"><span class="etro-stat-num" data-target="2">0</span><span class="etro-stat-label">Mumbai Locations</span></div>
+        <div class="etro-stat"><span class="etro-stat-num" data-target="500">0</span><span class="etro-stat-label">Happy Clients</span></div>
     </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="about-cta">
-    <div class="container-xxl py-5 text-center">
-        <h2 class="section-title mb-3" style="color:var(--white);">Ready to Partner with Arama Tessile?</h2>
-        <p class="section-subtitle mb-4" style="color:rgba(255,255,255,0.8);">Contact our B2B team for premium fabrics, bulk orders, and custom solutions.</p>
-        <a href="contact.html" class="cta-btn px-5 py-3 rounded-lg font-bold shadow-lg" style="font-size:1.1rem;display:inline-block;"><i class="fas fa-paper-plane me-2"></i>Contact Us for Wholesale</a>
+<section class="etro-sample-cta">
+    <div class="etro-sample-inner">
+        <h3>Ready to Partner with Arama Tessile?</h3>
+        <p>Contact our team for premium fabrics, bulk orders, and custom solutions.</p>
+        <a href="contact.html" class="etro-sample-btn">Get in Touch</a>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer-section">
-    <div class="container-xxl py-5">
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;">Arama Tessile</h5><p>Premium fabric manufacturer & wholesaler, Mumbai. LLPIN AAB-8912.</p></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Our Fabrics</h5><ul class="footer-links"><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Woven Fabrics</a></li><li><a href="products.html">Printed Fabrics</a></li><li><a href="products.html">Dyed Fabrics</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Company</h5><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="col-lg-3 col-md-6"><h5 class="footer-title">Connect</h5><div class="social-links"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a></div></div>
+<footer class="ft">
+    <div class="ft-top">
+        <div class="ft-top-inner">
+            <div class="ft-brand">
+                <a href="index.html" class="ft-logo">Arama Tessile</a>
+                <p>Premium cotton fabric manufacturer & wholesaler based in Mumbai, India. Trusted by 500+ garment manufacturers since 2013.</p>
+                <div class="ft-social">
+                    <a href="#" class="ft-social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="ft-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919999999999" class="ft-social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="ft-col"><h5>Fabrics</h5><ul><li><a href="products.html">All Fabrics</a></li><li><a href="products.html">Cotton Shirting</a></li><li><a href="products.html">Printed Fabrics</a></li><li><a href="products.html">Woven Fabrics</a></li></ul></div>
+            <div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="ft-col"><h5>Contact</h5><ul><li><a href="mailto:info@aramatessile.com"><i class="fas fa-envelope" style="width:16px;margin-right:.5rem;color:var(--accent)"></i>info@aramatessile.com</a></li><li><a href="https://wa.me/919999999999"><i class="fab fa-whatsapp" style="width:16px;margin-right:.5rem;color:#25D366"></i>WhatsApp Us</a></li></ul></div>
         </div>
-        <hr class="my-4"><div class="row text-center"><div class="col-12"><p class="mb-0">&copy; 2024 Arama Tessile LLP. All rights reserved.</p></div></div>
     </div>
+    <div class="ft-bottom"><div class="ft-bottom-inner"><span>&copy; 2024 Arama Tessile LLP. All rights reserved.</span><span>GSTIN: 27AAYFA8415D1Z7 | LLPIN: AAB-8912</span></div></div>
 </footer>
+
 <a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script><script src="js/script.js"></script>
 </body>
 </html>
